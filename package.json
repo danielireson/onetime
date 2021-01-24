@@ -1,0 +1,12 @@
+{
+  "name": "socketio-timer",
+  "version": "1.0.0",
+  "description": "Shareable synchronized timers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Daniel Ireson",
+  "license": "MIT"
+}

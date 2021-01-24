@@ -1,6 +1,9 @@
+/**
+ * Global styles
+ */
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 body {
@@ -43,6 +46,105 @@ img {
   height: auto;
 }
 
-main {
+button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: rgb(240, 240, 240);
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 0.8rem;
   text-align: center;
+}
+
+button:hover {
+  background: rgb(220, 220, 220);
+}
+
+button:active {
+  background: rgb(215, 215, 215);
+}
+
+input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+label {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 0.2rem auto;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+main {
+  width: 80%;
+  margin: 0 1rem;
+}
+
+/**
+ * Index view
+ */
+.index {
+  text-align: center;
+}
+
+.index-title {
+  font-size: 2rem;
+}
+
+.index-shortcode-input {
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.index-url {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+}
+
+/**
+ * Timer view
+ */
+.timer {
+  text-align: center;
+}
+
+.timer-url {
+  font-size: 1rem;
+}
+
+.timer-time {
+  margin: 1rem 0;
+  font-size: 12vw;
+  line-height: 1;
+}
+
+.timer-predefined-time {
+  margin-bottom: 1rem;
+}
+
+.timer-predefined-time-title {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.timer-predefined-time-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.timer-custom-time-title {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.timer-time-input {
+  margin-bottom: 0.5rem;
 }

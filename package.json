@@ -1,24 +1,26 @@
 {
   "name": "socketio-timer",
   "version": "1.0.0",
-  "description": "Shareable synchronized timers",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "watch": "DEBUG=socketio-timer:* nodemon --exec npm start",
+    "start": "concurrently --kill-others npm:client npm:server",
+    "client": "cd client && npm run start",
+    "server": "DEBUG=socketio-timer:* nodemon --ignore client --exec npm run dev",
+    "dev": "NODE_ENV=development node ./bin/www",
+    "build": "cd client && npm run build",
     "prod": "NODE_ENV=production node ./bin/www",
     "prettier": "prettier . --write",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "postinstall": "cd client && npm install"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "concurrently": "^6.0.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",

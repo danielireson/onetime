@@ -1,19 +1,4 @@
 .Timer {
-  text-align: center;
-}
-
-.Timer-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .Timer-logo {
-    animation: Timer-logo-spin infinite 20s linear;
-  }
-}
-
-.Timer-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -21,14 +6,25 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  text-align: center;
   color: white;
 }
 
-@keyframes Timer-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Timer-url {
+  font-size: calc(10px + 2vmin);
+  font-weight: normal;
+}
+
+.Timer-time {
+  margin: 0;
+  font-size: calc(10px + 20vmin);
+}
+
+.Timer-period {
+  color: rgb(133, 139, 150);
+  margin-right: 0.1em;
+}
+
+.Timer-period:last-child {
+  margin-right: 0em;
 }

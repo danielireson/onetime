@@ -1,16 +1,18 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./Timer.css";
 
 function Timer() {
   const { timerId } = useParams();
 
+  const TIMER_URL = window.location.href;
+
   return (
     <div className="Timer">
-      <header className="Timer-header">
-        <p>
-          Go <Link to="/">/home</Link>
-        </p>
-      </header>
+      <h2 className="Timer-url">{TIMER_URL}</h2>
+      <h1 className="Timer-time">
+        4<span className="Timer-period">m</span>
+        30<span className="Timer-period">s</span>
+      </h1>
     </div>
   );
 }

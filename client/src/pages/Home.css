@@ -10,16 +10,16 @@
   color: white;
 }
 
-.Home-shortcode-input {
+.Home-timer-url {
   margin-bottom: 1.5em;
 }
 
-.Home-shortcode-input span {
+.Home-base-url {
   color: rgb(133, 139, 150);
   user-select: none;
 }
 
-.Home-shortcode-input input {
+.Home-shortcode {
   display: inline-block;
   background: transparent;
   border: none;

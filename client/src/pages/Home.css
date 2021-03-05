@@ -9,22 +9,3 @@
   text-align: center;
   color: white;
 }
-
-.Home-timer-url {
-  margin-bottom: 1.5em;
-}
-
-.Home-base-url {
-  color: rgb(133, 139, 150);
-  user-select: none;
-}
-
-.Home-shortcode {
-  display: inline-block;
-  background: transparent;
-  border: none;
-  border-bottom: dashed 0.1em white;
-  color: white;
-  font-size: 1em;
-  text-align: center;
-}

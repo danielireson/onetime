@@ -1,0 +1,18 @@
+.ShortcodeInput {
+  margin-bottom: 1.5em;
+}
+
+.ShortcodeInput-base-url {
+  color: rgb(133, 139, 150);
+  user-select: none;
+}
+
+.ShortcodeInput-input {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  border-bottom: dashed 0.1em white;
+  color: white;
+  font-size: 1em;
+  text-align: center;
+}

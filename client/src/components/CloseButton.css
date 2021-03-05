@@ -1,0 +1,24 @@
+.CloseButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1;
+  padding: 1rem;
+  background: transparent;
+  fill: white;
+}
+
+.CloseButton:hover {
+  background: transparent;
+  fill: rgb(218, 218, 218);
+}
+
+.CloseButton:active {
+  background: transparent;
+  fill: rgb(190, 190, 190);
+}
+
+.CloseButton svg {
+  height: calc(10px + 4vmin);
+  width: calc(10px + 4vmin);
+}

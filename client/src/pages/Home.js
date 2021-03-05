@@ -7,11 +7,15 @@ function Home() {
   const [shortcode, setShortcode] = useState("");
   const history = useHistory();
 
+  const navigateTimer = () => {
+    history.push(shortcode);
+  };
+
   return (
     <div className="Home">
       <h1 className="Home-title">Create new timer</h1>
       <ShortcodeInput onChange={setShortcode} />
-      <button className="Home-button" onClick={() => history.push(shortcode)}>
+      <button className="Home-button" onClick={navigateTimer}>
         Create timer
       </button>
     </div>

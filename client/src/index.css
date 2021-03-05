@@ -22,11 +22,11 @@ button {
 }
 
 button:hover {
-  background: rgb(236, 236, 236);
+  background: rgb(218, 218, 218);
   cursor: pointer;
 }
 
 button:active {
-  background: rgb(226, 226, 226);
+  background: rgb(190, 190, 190);
   cursor: pointer;
 }

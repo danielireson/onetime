@@ -19,6 +19,7 @@
 .Timer-time {
   margin: 0;
   font-size: calc(10px + 20vmin);
+  line-height: 1;
 }
 
 .Timer-period {

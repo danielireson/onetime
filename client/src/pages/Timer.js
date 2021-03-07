@@ -1,5 +1,6 @@
 import { useHistory, useParams } from "react-router-dom";
 import CloseButton from "../components/CloseButton";
+import TimerControls from "../components/TimerControls";
 import "./Timer.css";
 
 function Timer() {
@@ -20,6 +21,7 @@ function Timer() {
         4<span className="Timer-period">m</span>
         30<span className="Timer-period">s</span>
       </h1>
+      <TimerControls />
     </div>
   );
 }

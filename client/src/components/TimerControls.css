@@ -1,0 +1,30 @@
+.TimerControls {
+  position: absolute;
+  bottom: 2rem;
+}
+
+.TimerControls-button {
+  margin-left: 1rem;
+}
+
+.TimerControls-button:first-child {
+  margin-left: 0;
+}
+
+.TimerControls-custom {
+  display: flex;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(133, 139, 150);
+  border-radius: 5px;
+}
+
+.TimerControls-input {
+  flex: 1;
+  border: none;
+  border-radius: 5px;
+}
+
+.TimerControls-custom .TimerControls-button {
+  margin-left: 1rem;
+}

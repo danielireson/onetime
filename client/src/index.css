@@ -30,3 +30,8 @@ button:active {
   background: rgb(190, 190, 190);
   cursor: pointer;
 }
+
+input {
+  font-size: calc(10px + 1vmin);
+  padding: 0.5rem;
+}

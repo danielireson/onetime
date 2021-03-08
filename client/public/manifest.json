@@ -1,6 +1,6 @@
 {
-  "short_name": "Socket.IO Timer",
-  "name": "Create shareable public timers",
+  "short_name": "OneTime",
+  "name": "Shareable countdown timers",
   "icons": [
     {
       "src": "favicon.ico",

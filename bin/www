@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 const app = require("../app");
-const debug = require("debug")("socketio-timer:server");
+const debug = require("debug")("onetime:server");
 const http = require("http");
 
 /**

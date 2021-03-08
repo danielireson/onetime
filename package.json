@@ -1,11 +1,11 @@
 {
-  "name": "socketio-timer",
+  "name": "onetime",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "concurrently --kill-others npm:client npm:server",
     "client": "cd client && npm run start",
-    "server": "DEBUG=socketio-timer:* nodemon --ignore client --exec npm run dev",
+    "server": "DEBUG=onetime:* nodemon --ignore client --exec npm run dev",
     "dev": "NODE_ENV=development node ./bin/www",
     "build": "cd client && npm run build",
     "prod": "NODE_ENV=production node ./bin/www",

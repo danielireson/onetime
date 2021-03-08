@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import "./TimerControls.css";
 
 function TimerControls() {
   const [showCustomTime, setShowCustomTime] = useState(false);
+  const customTimeInputRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (showCustomTime) {
+      customTimeInputRef.current.focus();
+    }
+  });
 
   const toggleCustomTime = () => {
     setShowCustomTime(!showCustomTime);
@@ -17,6 +24,7 @@ function TimerControls() {
       {showCustomTime && (
         <div className="TimerControls-custom">
           <input
+            ref={customTimeInputRef}
             className="TimerControls-input"
             type="text"
             placeholder="Time in minutes"

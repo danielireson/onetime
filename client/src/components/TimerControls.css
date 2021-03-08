@@ -25,6 +25,10 @@
   border-radius: 5px;
 }
 
+.TimerControls-input:focus {
+  outline: none;
+}
+
 .TimerControls-custom .TimerControls-button {
   margin-left: 1rem;
 }

@@ -11,12 +11,12 @@ function TimerControls() {
     }
   });
 
-  const toggleCustomTime = () => {
-    setShowCustomTime(!showCustomTime);
-  };
-
   const setCustomTime = () => {
     setShowCustomTime(false);
+  };
+
+  const toggleCustomTime = () => {
+    setShowCustomTime(!showCustomTime);
   };
 
   return (

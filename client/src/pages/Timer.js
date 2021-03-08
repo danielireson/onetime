@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import CloseButton from "../components/CloseButton";
 import TimerControls from "../components/TimerControls";
@@ -6,6 +7,10 @@ import "./Timer.css";
 function Timer() {
   const { timerId } = useParams();
   const history = useHistory();
+
+  useEffect(() => {
+    document.title = `Timer ${timerId}`;
+  });
 
   const navigateHome = () => {
     history.push("/");

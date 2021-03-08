@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ShortcodeInput from "../components/ShortcodeInput";
 import "./Home.css";
@@ -6,6 +6,10 @@ import "./Home.css";
 function Home() {
   const [shortcode, setShortcode] = useState("");
   const history = useHistory();
+
+  useEffect(() => {
+    document.title = "Create new timer";
+  });
 
   const navigateTimer = () => {
     history.push(shortcode);

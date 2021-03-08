@@ -4,16 +4,16 @@
 }
 
 .TimerControls-button {
-  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.TimerControls-button:first-child {
-  margin-left: 0;
+.TimerControls-button:last-child {
+  margin-right: 0;
 }
 
 .TimerControls-custom {
   display: flex;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 1rem;
   background-color: rgb(133, 139, 150);
   border-radius: 5px;

@@ -14,12 +14,6 @@ function TimerControls() {
 
   return (
     <div className="TimerControls">
-      <button className="TimerControls-button">5 mins</button>
-      <button className="TimerControls-button">10 mins</button>
-      <button className="TimerControls-button">15 mins</button>
-      <button className="TimerControls-button" onClick={toggleCustomTime}>
-        Custom
-      </button>
       {showCustomTime && (
         <div className="TimerControls-custom">
           <input
@@ -32,6 +26,12 @@ function TimerControls() {
           </button>
         </div>
       )}
+      <button className="TimerControls-button">5 mins</button>
+      <button className="TimerControls-button">10 mins</button>
+      <button className="TimerControls-button">15 mins</button>
+      <button className="TimerControls-button" onClick={toggleCustomTime}>
+        Custom
+      </button>
     </div>
   );
 }

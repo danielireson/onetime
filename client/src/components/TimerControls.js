@@ -1,43 +1,78 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import "./TimerControls.css";
 
-function TimerControls() {
-  const [showCustomTime, setShowCustomTime] = useState(false);
-  const customTimeInputRef = useRef(null);
+function TimerControls({ updateEndTime }) {
+  const [showCustomTimePanel, setShowCustomTimePanel] = useState(false);
+  const [customTimeInMins, setCustomTimeInMins] = useState("");
+  const customTimeInputRef = useRef();
 
   useLayoutEffect(() => {
-    if (showCustomTime) {
+    if (showCustomTimePanel) {
       customTimeInputRef.current.focus();
     }
   });
 
-  const setCustomTime = () => {
-    setShowCustomTime(false);
+  const toggleShowCustomTimePanel = () => {
+    setShowCustomTimePanel(!showCustomTimePanel);
   };
 
-  const toggleCustomTime = () => {
-    setShowCustomTime(!showCustomTime);
+  const resetCustomTimePanel = () => {
+    setShowCustomTimePanel(false);
+    setCustomTimeInMins("");
+  };
+
+  const updateEndTimeFromCustomTime = () => {
+    updateEndTime(customTimeInMins);
+    resetCustomTimePanel();
+  };
+
+  const updateEndTimeFromFixedTime = (timeInMinutes) => {
+    updateEndTime(timeInMinutes);
+    resetCustomTimePanel();
   };
 
   return (
     <div className="TimerControls">
-      {showCustomTime && (
-        <div className="TimerControls-custom">
+      {showCustomTimePanel && (
+        <div className="TimerControls-panel">
           <input
-            ref={customTimeInputRef}
-            className="TimerControls-input"
             type="text"
+            className="TimerControls-panel-input"
             placeholder="Time in minutes"
+            value={customTimeInMins}
+            ref={customTimeInputRef}
+            onChange={(e) => setCustomTimeInMins(e.target.value)}
           />
-          <button className="TimerControls-button" onClick={setCustomTime}>
+          <button
+            className="TimerControls-button"
+            onClick={updateEndTimeFromCustomTime}
+          >
             Set time
           </button>
         </div>
       )}
-      <button className="TimerControls-button">5 mins</button>
-      <button className="TimerControls-button">10 mins</button>
-      <button className="TimerControls-button">15 mins</button>
-      <button className="TimerControls-button" onClick={toggleCustomTime}>
+      <button
+        className="TimerControls-button"
+        onClick={() => updateEndTimeFromFixedTime(5)}
+      >
+        5 mins
+      </button>
+      <button
+        className="TimerControls-button"
+        onClick={() => updateEndTimeFromFixedTime(10)}
+      >
+        10 mins
+      </button>
+      <button
+        className="TimerControls-button"
+        onClick={() => updateEndTimeFromFixedTime(15)}
+      >
+        15 mins
+      </button>
+      <button
+        className="TimerControls-button"
+        onClick={toggleShowCustomTimePanel}
+      >
         Custom
       </button>
     </div>

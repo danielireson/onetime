@@ -11,7 +11,7 @@
   margin-right: 0;
 }
 
-.TimerControls-custom {
+.TimerControls-panel {
   display: flex;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -19,16 +19,16 @@
   border-radius: 5px;
 }
 
-.TimerControls-input {
+.TimerControls-panel-input {
   flex: 1;
   border: none;
   border-radius: 5px;
 }
 
-.TimerControls-input:focus {
+.TimerControls-panel-input:focus {
   outline: none;
 }
 
-.TimerControls-custom .TimerControls-button {
+.TimerControls-panel .TimerControls-button {
   margin-left: 1rem;
 }

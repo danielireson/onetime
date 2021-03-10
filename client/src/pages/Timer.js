@@ -1,32 +1,56 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import CloseButton from "../components/CloseButton";
 import TimerControls from "../components/TimerControls";
+import useTimerApi from "../hooks/useTimerApi";
+import { friendlyTime } from "../utils/time";
 import "./Timer.css";
 
 function Timer() {
-  const { timerId } = useParams();
+  const TIMER_URL = window.location.href;
   const history = useHistory();
+  const { timerId } = useParams();
+  const { endTime, updateEndTime } = useTimerApi(timerId);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    document.title = `Timer ${timerId}`;
-  });
+    const calculateMinutesAndSeconds = () => {
+      const { minutes: m, seconds: s } = friendlyTime(endTime);
+      setMinutes(m);
+      setSeconds(s);
+    };
+
+    calculateMinutesAndSeconds();
+
+    const interval = setInterval(() => {
+      calculateMinutesAndSeconds();
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [endTime]);
+
+  useEffect(() => {
+    document.title = `${minutes}m ${seconds}s`;
+  }, [minutes, seconds]);
 
   const navigateHome = () => {
     history.push("/");
   };
-
-  const TIMER_URL = window.location.href;
 
   return (
     <div className="Timer">
       <CloseButton onClose={navigateHome} />
       <h2 className="Timer-url">{TIMER_URL}</h2>
       <h1 className="Timer-time">
-        4<span className="Timer-period">m</span>
-        30<span className="Timer-period">s</span>
+        {minutes}
+        <span className="Timer-period">m</span>
+        {seconds}
+        <span className="Timer-period">s</span>
       </h1>
-      <TimerControls />
+      <TimerControls updateEndTime={updateEndTime} />
     </div>
   );
 }

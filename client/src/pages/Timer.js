@@ -30,11 +30,11 @@ function Timer() {
     return () => {
       clearInterval(interval);
     };
-  }, [endTime]);
+  });
 
   useEffect(() => {
     document.title = `${minutes}m ${seconds}s`;
-  }, [minutes, seconds]);
+  });
 
   const navigateHome = () => {
     history.push("/");

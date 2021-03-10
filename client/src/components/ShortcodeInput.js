@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { randomString } from "../utils/string";
-import "./ShortcodeInput.css";
+import styles from "./ShortcodeInput.module.css";
 
 function ShortcodeInput({ onChange }) {
   const [shortcode, setShortcode] = useState(randomString(5));
@@ -12,11 +12,11 @@ function ShortcodeInput({ onChange }) {
   const BASE_URL = window.location.href;
 
   return (
-    <div className="ShortcodeInput">
-      <span className="ShortcodeInput-base-url">{BASE_URL}</span>
+    <div className={styles.wrapper}>
+      <span className={styles.baseUrl}>{BASE_URL}</span>
       <input
         type="text"
-        className="ShortcodeInput-input"
+        className={styles.input}
         value={shortcode}
         size={shortcode.length || 1}
         onChange={(e) => setShortcode(e.target.value)}

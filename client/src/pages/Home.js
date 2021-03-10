@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ShortcodeInput from "../components/ShortcodeInput";
-import "./Home.css";
+import styles from "./Home.module.css";
 
 function Home() {
   const [shortcode, setShortcode] = useState("");
@@ -16,12 +16,10 @@ function Home() {
   };
 
   return (
-    <div className="Home">
-      <h1 className="Home-title">Create new timer</h1>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>Create new timer</h1>
       <ShortcodeInput onChange={setShortcode} />
-      <button className="Home-button" onClick={navigateTimer}>
-        Create timer
-      </button>
+      <button onClick={navigateTimer}>Create timer</button>
     </div>
   );
 }

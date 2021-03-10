@@ -1,4 +1,4 @@
-.Home {
+.wrapper {
   background-color: rgb(40, 44, 52);
   min-height: 100vh;
   display: flex;
@@ -10,6 +10,6 @@
   color: white;
 }
 
-.Home-title {
+.title {
   line-height: 1;
 }

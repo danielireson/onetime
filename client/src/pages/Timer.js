@@ -4,7 +4,7 @@ import CloseButton from "../components/CloseButton";
 import TimerControls from "../components/TimerControls";
 import useTimerApi from "../hooks/useTimerApi";
 import { friendlyTime } from "../utils/time";
-import "./Timer.css";
+import styles from "./Timer.module.css";
 
 function Timer() {
   const TIMER_URL = window.location.href;
@@ -41,14 +41,14 @@ function Timer() {
   };
 
   return (
-    <div className="Timer">
+    <div className={styles.wrapper}>
       <CloseButton onClose={navigateHome} />
-      <h2 className="Timer-url">{TIMER_URL}</h2>
-      <h1 className="Timer-time">
+      <h2 className={styles.url}>{TIMER_URL}</h2>
+      <h1 className={styles.time}>
         {minutes}
-        <span className="Timer-period">m</span>
+        <span className={styles.period}>m</span>
         {seconds}
-        <span className="Timer-period">s</span>
+        <span className={styles.period}>s</span>
       </h1>
       <TimerControls updateEndTime={updateEndTime} />
     </div>

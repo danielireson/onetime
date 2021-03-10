@@ -1,13 +1,13 @@
-.ShortcodeInput {
+.wrapper {
   margin-bottom: 1.5em;
 }
 
-.ShortcodeInput-base-url {
+.baseUrl {
   color: rgb(133, 139, 150);
   user-select: none;
 }
 
-.ShortcodeInput-input {
+.input {
   display: inline-block;
   background: transparent;
   border: none;

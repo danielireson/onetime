@@ -1,4 +1,4 @@
-.CloseButton {
+.button {
   position: absolute;
   top: 0;
   left: 0;
@@ -8,17 +8,17 @@
   fill: white;
 }
 
-.CloseButton:hover {
+.button:hover {
   background: transparent;
   fill: rgb(218, 218, 218);
 }
 
-.CloseButton:active {
+.button:active {
   background: transparent;
   fill: rgb(190, 190, 190);
 }
 
-.CloseButton svg {
+.button svg {
   height: calc(10px + 4vmin);
   width: calc(10px + 4vmin);
 }

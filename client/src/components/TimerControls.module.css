@@ -1,17 +1,17 @@
-.TimerControls {
+.wrapper {
   position: absolute;
   bottom: 2rem;
 }
 
-.TimerControls-button {
+.button {
   margin-right: 1rem;
 }
 
-.TimerControls-button:last-child {
+.button:last-child {
   margin-right: 0;
 }
 
-.TimerControls-panel {
+.panel {
   display: flex;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -19,16 +19,16 @@
   border-radius: 5px;
 }
 
-.TimerControls-panel-input {
+.panelInput {
   flex: 1;
   border: none;
   border-radius: 5px;
 }
 
-.TimerControls-panel-input:focus {
+.panelInput:focus {
   outline: none;
 }
 
-.TimerControls-panel .TimerControls-button {
+.panel .button {
   margin-left: 1rem;
 }

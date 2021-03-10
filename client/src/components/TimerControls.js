@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import "./TimerControls.css";
+import styles from "./TimerControls.module.css";
 
 function TimerControls({ updateEndTime }) {
   const [showCustomTimePanel, setShowCustomTimePanel] = useState(false);
@@ -32,19 +32,19 @@ function TimerControls({ updateEndTime }) {
   };
 
   return (
-    <div className="TimerControls">
+    <div className={styles.wrapper}>
       {showCustomTimePanel && (
-        <div className="TimerControls-panel">
+        <div className={styles.panel}>
           <input
             type="text"
-            className="TimerControls-panel-input"
+            className={styles.panelInput}
             placeholder="Time in minutes"
             value={customTimeInMins}
             ref={customTimeInputRef}
             onChange={(e) => setCustomTimeInMins(e.target.value)}
           />
           <button
-            className="TimerControls-button"
+            className={styles.button}
             onClick={updateEndTimeFromCustomTime}
           >
             Set time
@@ -52,27 +52,24 @@ function TimerControls({ updateEndTime }) {
         </div>
       )}
       <button
-        className="TimerControls-button"
+        className={styles.button}
         onClick={() => updateEndTimeFromFixedTime(5)}
       >
         5 mins
       </button>
       <button
-        className="TimerControls-button"
+        className={styles.button}
         onClick={() => updateEndTimeFromFixedTime(10)}
       >
         10 mins
       </button>
       <button
-        className="TimerControls-button"
+        className={styles.button}
         onClick={() => updateEndTimeFromFixedTime(15)}
       >
         15 mins
       </button>
-      <button
-        className="TimerControls-button"
-        onClick={toggleShowCustomTimePanel}
-      >
+      <button className={styles.button} onClick={toggleShowCustomTimePanel}>
         Custom
       </button>
     </div>

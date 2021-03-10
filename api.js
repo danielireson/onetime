@@ -54,6 +54,7 @@ io.on("connection", function (socket) {
 
 io.of("/").adapter.on("delete-room", (roomId) => {
   if (roomId.startsWith(ROOM_NAMESPACE)) {
+    // all clients have disconnected so delete timer
     const timerId = roomId.split("/")[1];
     deleteTimer(timerId);
   }

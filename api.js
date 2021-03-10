@@ -1,6 +1,7 @@
 const io = require("socket.io")();
 
 const SOCKET_EVENT = "change";
+const ROOM_NAMESPACE = "timers";
 
 // data store
 const timers = {};
@@ -34,8 +35,9 @@ const deleteTimer = (timerId) => {
 // handlers
 io.on("connection", function (socket) {
   const timerId = socket.handshake.query.timerId;
+  const roomId = `${ROOM_NAMESPACE}/${timerId}`;
 
-  socket.join(`timers/${timerId}`);
+  socket.join(roomId);
 
   if (hasTimer(timerId)) {
     socket.emit(SOCKET_EVENT, getTimer(timerId));
@@ -43,21 +45,15 @@ io.on("connection", function (socket) {
 
   socket.on(SOCKET_EVENT, (message) => {
     if (hasTimer(timerId)) {
-      io.to(`timers/${timerId}`).emit(
-        SOCKET_EVENT,
-        updateTimer(timerId, message.endTime)
-      );
+      io.to(roomId).emit(SOCKET_EVENT, updateTimer(timerId, message.endTime));
     } else {
-      io.to(`timers/${timerId}`).emit(
-        SOCKET_EVENT,
-        createTimer(timerId, message.endTime)
-      );
+      io.to(roomId).emit(SOCKET_EVENT, createTimer(timerId, message.endTime));
     }
   });
 });
 
 io.of("/").adapter.on("delete-room", (roomId) => {
-  if (roomId.startsWith("timers")) {
+  if (roomId.startsWith(ROOM_NAMESPACE)) {
     const timerId = roomId.split("/")[1];
     deleteTimer(timerId);
   }

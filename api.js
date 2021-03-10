@@ -1,59 +1,66 @@
-const express = require("express");
-const createError = require("http-errors");
-const router = express.Router();
+const io = require("socket.io")();
+
+const SOCKET_EVENT = "change";
 
 // data store
 const timers = {};
 
-const getTimer = (shortcode) => timers[shortcode];
-const setTimer = (shortcode, timer) => (timers[shortcode] = timer);
+const getTimer = (timerId) => timers[timerId];
 
-// endpoints
-router.get("/timers/:timerId", function (req, res, next) {
-  if (req.params.timerId == undefined) {
-    return next(createError(404, "Expected path parameter"));
-  }
+const hasTimer = (timerId) => !!getTimer(timerId);
 
-  const timer = getTimer(req.params.timerId);
-
-  if (timer == undefined) {
-    return next(createError(404, "Timer not found"));
-  }
-
-  res.send(timer);
-});
-
-router.post("/timers", function (req, res, next) {
-  if (req.body.shortcode == undefined) {
-    return next(createError(404, "Expected 'shortcode' body parameter"));
-  }
-
-  if (getTimer(req.body.shortcode) != undefined) {
-    return next(createError(422, "Timer shortcode is not unique"));
-  }
-
+const createTimer = (timerId, endTime) => {
   const timer = {
-    shortcode: req.body.shortcode,
+    endTime,
   };
 
-  setTimer(req.body.shortcode, timer);
+  timers[timerId] = timer;
 
-  res.status(201).send(timer);
-});
+  return timer;
+};
 
-// catch 404 and forward to error handler
-router.use(function (req, res, next) {
-  next(createError(404, "Route not found"));
-});
+const updateTimer = (timerId, endTime) => {
+  const timer = getTimer(timerId);
 
-// error handler
-router.use(function (err, req, res, next) {
-  const message =
-    req.app.get("env") === "development" ? err.message : "Unexpected error";
+  timer.endTime = endTime;
 
-  res.status(err.status || 500).send({
-    error: message,
+  return timer;
+};
+
+const deleteTimer = (timerId) => {
+  delete timers[timerId];
+};
+
+// handlers
+io.on("connection", function (socket) {
+  const timerId = socket.handshake.query.timerId;
+
+  socket.join(`timers/${timerId}`);
+
+  if (hasTimer(timerId)) {
+    socket.emit(SOCKET_EVENT, getTimer(timerId));
+  }
+
+  socket.on(SOCKET_EVENT, (message) => {
+    if (hasTimer(timerId)) {
+      io.to(`timers/${timerId}`).emit(
+        SOCKET_EVENT,
+        updateTimer(timerId, message.endTime)
+      );
+    } else {
+      io.to(`timers/${timerId}`).emit(
+        SOCKET_EVENT,
+        createTimer(timerId, message.endTime)
+      );
+    }
   });
 });
 
-module.exports = router;
+io.of("/").adapter.on("delete-room", (roomId) => {
+  if (roomId.startsWith("timers")) {
+    const timerId = roomId.split("/")[1];
+    deleteTimer(timerId);
+  }
+});
+
+module.exports = io;

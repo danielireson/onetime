@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 const app = require("../app");
+const api = require("../api");
 const debug = require("debug")("onetime:server");
 const http = require("http");
 
@@ -17,6 +18,7 @@ app.set("port", port);
  * Create HTTP server.
  */
 const server = http.createServer(app);
+api.attach(server);
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -2,7 +2,6 @@ const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
-const apiRouter = require("./api");
 const app = express();
 
 // middleware
@@ -11,10 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-// endpoints
-app.use("/api", apiRouter);
-
-// client
+// serve client
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });

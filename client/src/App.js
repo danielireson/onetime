@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
 import Home from "./pages/Home";
 import Timer from "./pages/Timer";
 

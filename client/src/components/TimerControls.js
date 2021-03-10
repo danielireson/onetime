@@ -22,8 +22,10 @@ function TimerControls({ updateEndTime }) {
   };
 
   const updateEndTimeFromCustomTime = () => {
-    updateEndTime(customTimeInMins);
-    resetCustomTimePanel();
+    if (customTimeInputRef.current.checkValidity()) {
+      updateEndTime(customTimeInMins);
+      resetCustomTimePanel();
+    }
   };
 
   const updateEndTimeFromFixedTime = (timeInMinutes) => {
@@ -36,7 +38,7 @@ function TimerControls({ updateEndTime }) {
       {showCustomTimePanel && (
         <div className={styles.panel}>
           <input
-            type="text"
+            type="number"
             className={styles.panelInput}
             placeholder="Time in minutes"
             value={customTimeInMins}

@@ -23,6 +23,10 @@ export function friendlyTime(timestamp) {
 }
 
 export function futureTime(minutes) {
-  // future time in milliseconds
+  if (isNaN(minutes)) {
+    return Date.now();
+  }
+
+  // time in milliseconds
   return Date.now() + minutes * 60 * 1000;
 }

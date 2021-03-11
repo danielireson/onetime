@@ -14,6 +14,8 @@ RUN npm run build
 
 WORKDIR /app
 
+USER node
+
 ENV NODE_ENV production
 
 ENV PORT 5100

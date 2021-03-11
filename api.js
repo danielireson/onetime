@@ -1,5 +1,5 @@
 const io = require("socket.io")();
-const { getTimer, updateTimer, createTimer, deleteTimer } = require("./store");
+const { getTimer, createTimer, deleteTimer } = require("./store");
 
 const SOCKET_EVENT = "change";
 const ROOM_NAMESPACE = "timers";
@@ -15,11 +15,7 @@ io.on("connection", function (socket) {
   }
 
   socket.on(SOCKET_EVENT, (message) => {
-    if (getTimer(timerId)) {
-      io.to(roomId).emit(SOCKET_EVENT, updateTimer(timerId, message.endTime));
-    } else {
-      io.to(roomId).emit(SOCKET_EVENT, createTimer(timerId, message.endTime));
-    }
+    io.to(roomId).emit(SOCKET_EVENT, createTimer(timerId, message.endTime));
   });
 });
 

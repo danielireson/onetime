@@ -7,7 +7,6 @@
     "client": "cd client && npm run start",
     "server": "DEBUG=onetime:* nodemon --ignore client --exec npm run dev",
     "dev": "NODE_ENV=development node ./bin/www",
-    "build": "cd client && npm run build",
     "prod": "NODE_ENV=production node ./bin/www",
     "prettier": "prettier . --write",
     "eslint": "eslint .",

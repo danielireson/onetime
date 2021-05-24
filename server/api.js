@@ -1,5 +1,5 @@
 const io = require("socket.io")();
-const { getTimer, createTimer, deleteTimer } = require("./store");
+const { getTimer, createTimer, deleteTimer } = require("./db");
 
 const SOCKET_EVENT = "change";
 const ROOM_NAMESPACE = "timers";

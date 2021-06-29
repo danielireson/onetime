@@ -45,10 +45,14 @@ function Timer() {
       <CloseButton onClose={navigateHome} />
       <h2 className={styles.url}>{TIMER_URL}</h2>
       <h1 className={styles.time}>
-        {minutes}
-        <span className={styles.period}>m</span>
-        {seconds}
-        <span className={styles.period}>s</span>
+        <span className={styles.period}>
+          {minutes}
+          <span className={styles.unit}>m</span>
+        </span>
+        <span className={styles.period}>
+          {seconds}
+          <span className={styles.unit}>s</span>
+        </span>
       </h1>
       <TimerControls updateEndTime={updateEndTime} />
     </div>

@@ -3,6 +3,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -20,15 +21,25 @@
 
 .time {
   margin: 0;
-  font-size: calc(10px + 20vmin);
+  font-size: 20vw;
   line-height: 1;
 }
 
 .period {
+  display: block;
+}
+
+@media screen and (min-width: 576px) {
+  .period {
+    display: inline;
+  }
+}
+
+.unit {
   color: rgb(133, 139, 150);
   margin-right: 0.1em;
 }
 
-.period:last-child {
+.unit:last-child {
   margin-right: 0em;
 }

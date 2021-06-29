@@ -13,6 +13,7 @@ function Timer() {
   const { endTime, updateEndTime } = useTimerApi(timerId);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const showSeconds = minutes.toString().length < 4;
 
   useEffect(() => {
     const calculateMinutesAndSeconds = () => {
@@ -49,10 +50,12 @@ function Timer() {
           {minutes}
           <span className={styles.unit}>m</span>
         </span>
-        <span className={styles.period}>
-          {seconds}
-          <span className={styles.unit}>s</span>
-        </span>
+        {showSeconds && (
+          <span className={styles.period}>
+            {seconds}
+            <span className={styles.unit}>s</span>
+          </span>
+        )}
       </h1>
       <TimerControls updateEndTime={updateEndTime} />
     </div>

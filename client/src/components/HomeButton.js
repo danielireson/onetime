@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import styles from "./HomeButton.module.css";
 
-function HomeButton({ onClick }) {
+function HomeButton() {
   const history = useHistory();
 
   const navigateHome = () => {

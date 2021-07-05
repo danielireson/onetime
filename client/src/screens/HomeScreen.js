@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ShortcodeInput from "../components/ShortcodeInput";
-import styles from "./Home.module.css";
+import styles from "./HomeScreen.module.css";
 
-function Home() {
+function HomeScreen() {
   const [shortcode, setShortcode] = useState("");
   const history = useHistory();
 
@@ -24,4 +24,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomeScreen;

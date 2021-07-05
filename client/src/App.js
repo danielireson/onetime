@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Timer from "./pages/Timer";
+import HomeScreen from "./screens/HomeScreen";
+import TimerScreen from "./screens/TimerScreen";
 
 function App() {
   return (
@@ -8,10 +8,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <HomeScreen />
           </Route>
           <Route path="/:timerId">
-            <Timer />
+            <TimerScreen />
           </Route>
         </Switch>
       </Router>

@@ -4,12 +4,12 @@ import CloseButton from "../components/CloseButton";
 import TimerControls from "../components/TimerControls";
 import useTimerApi from "../hooks/useTimerApi";
 import { friendlyTime } from "../utils/time";
-import styles from "./Timer.module.css";
+import styles from "./TimerScreen.module.css";
 
 const MAX_DISPLAY_MINUTES = 1440;
 const MAX_MINUTES_DIGITS = 4;
 
-function Timer() {
+function TimerScreen() {
   const TIMER_URL = window.location.href;
   const { timerId } = useParams();
   const history = useHistory();
@@ -74,4 +74,4 @@ function Timer() {
   );
 }
 
-export default Timer;
+export default TimerScreen;

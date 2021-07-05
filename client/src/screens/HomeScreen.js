@@ -5,8 +5,8 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import styles from "./HomeScreen.module.css";
 
 function HomeScreen() {
-  const [shortcode, setShortcode] = useState("");
   const history = useHistory();
+  const [shortcode, setShortcode] = useState("");
 
   useDocumentTitle("Create new timer");
 

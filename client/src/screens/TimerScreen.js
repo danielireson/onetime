@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import CloseButton from "../components/CloseButton";
 import Timer from "../components/Timer";
 import TimerControls from "../components/TimerControls";
 import TimerLink from "../components/TimerLink";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 import useTimerApi from "../hooks/useTimerApi";
 import styles from "./TimerScreen.module.css";
 
@@ -12,9 +12,7 @@ function TimerScreen() {
   const { timerId } = useParams();
   const { minutes, seconds, updateEndTime } = useTimerApi(timerId);
 
-  useEffect(() => {
-    document.title = `${minutes}m ${seconds}s`;
-  });
+  useDocumentTitle(`${minutes}m ${seconds}s`);
 
   const navigateHome = () => {
     history.push("/");

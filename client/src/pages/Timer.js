@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import CloseButton from "../components/CloseButton";
+import { useParams } from "react-router-dom";
+import HomeButton from "../components/HomeButton";
 import TimerControls from "../components/TimerControls";
 import useTimerApi from "../hooks/useTimerApi";
 import { friendlyTime } from "../utils/time";
@@ -10,7 +10,6 @@ const MAX_DISPLAY_MINUTES = 1440;
 
 function Timer() {
   const TIMER_URL = window.location.href;
-  const history = useHistory();
   const { timerId } = useParams();
   const { endTime, updateEndTime } = useTimerApi(timerId);
   const [minutes, setMinutes] = useState(0);
@@ -40,13 +39,9 @@ function Timer() {
     document.title = `${minutes}m ${seconds}s`;
   });
 
-  const navigateHome = () => {
-    history.push("/");
-  };
-
   return (
     <div className={styles.wrapper}>
-      <CloseButton onClose={navigateHome} />
+      <HomeButton />
       <h2 className={styles.url}>{TIMER_URL}</h2>
       <h1 className={styles.time}>
         {!showMinutes && (

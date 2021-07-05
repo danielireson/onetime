@@ -5,20 +5,20 @@
   line-height: 1;
   padding: 1rem;
   background: transparent;
-  fill: white;
+  color: white;
 }
 
 .button:hover {
   background: transparent;
-  fill: rgb(218, 218, 218);
+  color: rgb(218, 218, 218);
 }
 
 .button:active {
   background: transparent;
-  fill: rgb(190, 190, 190);
+  color: rgb(190, 190, 190);
 }
 
-.button svg {
+.svg {
   height: calc(10px + 4vmin);
   width: calc(10px + 4vmin);
 }

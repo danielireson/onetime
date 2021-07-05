@@ -1,6 +1,10 @@
 import styles from "./CloseButton.module.css";
 
-function CloseButton({ onClick }) {
+function CloseButton({ showButton, onClick }) {
+  if (!showButton) {
+    return null;
+  }
+
   return (
     <button className={styles.button} onClick={onClick}>
       <svg className={styles.svg} viewBox="0 0 24 24">

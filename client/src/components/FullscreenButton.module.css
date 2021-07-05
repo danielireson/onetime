@@ -1,0 +1,24 @@
+.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 1;
+  padding: 1rem;
+  background: transparent;
+  color: white;
+}
+
+.button:hover {
+  background: transparent;
+  color: rgb(218, 218, 218);
+}
+
+.button:active {
+  background: transparent;
+  color: rgb(190, 190, 190);
+}
+
+.svg {
+  height: calc(10px + 4vmin);
+  width: calc(10px + 4vmin);
+}

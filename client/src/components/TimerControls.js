@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./TimerControls.module.css";
 
-function TimerControls({ updateEndTime }) {
+function TimerControls({ showControls, updateEndTime }) {
   const [showCustomTimePanel, setShowCustomTimePanel] = useState(false);
   const [customTimeInMins, setCustomTimeInMins] = useState("");
   const customTimeInputRef = useRef();
@@ -32,6 +32,10 @@ function TimerControls({ updateEndTime }) {
     updateEndTime(timeInMinutes);
     resetCustomTimePanel();
   };
+
+  if (!showControls) {
+    return null;
+  }
 
   return (
     <div className={styles.wrapper}>

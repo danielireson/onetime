@@ -57,26 +57,28 @@ function TimerControls({ showControls, updateEndTime }) {
           </button>
         </div>
       )}
-      <button
-        className={styles.button}
-        onClick={() => updateEndTimeFromFixedTime(5)}
-      >
-        5 mins
-      </button>
-      <button
-        className={styles.button}
-        onClick={() => updateEndTimeFromFixedTime(10)}
-      >
-        10 mins
-      </button>
-      <button
-        className={styles.button}
-        onClick={() => updateEndTimeFromFixedTime(15)}
-      >
-        15 mins
-      </button>
+      <div className={styles.presetButtons}>
+        <button
+          className={styles.button}
+          onClick={() => updateEndTimeFromFixedTime(5)}
+        >
+          5 mins
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => updateEndTimeFromFixedTime(10)}
+        >
+          10 mins
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => updateEndTimeFromFixedTime(15)}
+        >
+          15 mins
+        </button>
+      </div>
       <button className={styles.button} onClick={toggleShowCustomTimePanel}>
-        Custom
+        Custom time
       </button>
     </div>
   );

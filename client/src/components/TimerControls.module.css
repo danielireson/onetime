@@ -4,11 +4,21 @@
 }
 
 .button {
-  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
-.button:last-child {
-  margin-right: 0;
+.button:first-child {
+  margin-left: 0;
+}
+
+.presetButtons {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .presetButtons {
+    display: inline-block;
+  }
 }
 
 .panel {

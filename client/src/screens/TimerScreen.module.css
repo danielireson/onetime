@@ -18,28 +18,3 @@
   font-weight: normal;
   word-break: break-all;
 }
-
-.time {
-  margin: 0;
-  font-size: 20vw;
-  line-height: 1;
-}
-
-.period {
-  display: block;
-}
-
-@media screen and (min-width: 576px) {
-  .period {
-    display: inline;
-  }
-}
-
-.unit {
-  color: rgb(133, 139, 150);
-  margin-right: 0.1em;
-}
-
-.unit:last-child {
-  margin-right: 0em;
-}

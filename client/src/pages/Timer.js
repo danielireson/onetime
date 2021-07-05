@@ -7,6 +7,7 @@ import { friendlyTime } from "../utils/time";
 import styles from "./Timer.module.css";
 
 const MAX_DISPLAY_MINUTES = 1440;
+const MAX_MINUTES_DIGITS = 4;
 
 function Timer() {
   const TIMER_URL = window.location.href;
@@ -15,7 +16,7 @@ function Timer() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const showMinutes = minutes < MAX_DISPLAY_MINUTES;
-  const showSeconds = minutes.toString().length < 4;
+  const showSeconds = minutes.toString().length < MAX_MINUTES_DIGITS;
 
   useEffect(() => {
     const calculateMinutesAndSeconds = () => {

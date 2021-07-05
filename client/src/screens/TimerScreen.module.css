@@ -10,11 +10,3 @@
   text-align: center;
   color: white;
 }
-
-.url {
-  margin-top: 0;
-  padding: 0 1rem;
-  font-size: calc(10px + 2vmin);
-  font-weight: normal;
-  word-break: break-all;
-}

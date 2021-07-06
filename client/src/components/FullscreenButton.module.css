@@ -20,6 +20,6 @@
 }
 
 .svg {
-  height: calc(10px + 4vmin);
-  width: calc(10px + 4vmin);
+  height: var(--size-1);
+  width: var(--size-1);
 }

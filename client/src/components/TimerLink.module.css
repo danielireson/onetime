@@ -1,7 +1,7 @@
 .link {
   margin-top: 0;
   padding: 0 1rem;
-  font-size: calc(10px + 2vmin);
+  font-size: var(--size-2);
   font-weight: normal;
   word-break: break-all;
 }

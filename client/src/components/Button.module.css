@@ -3,7 +3,7 @@
   background: var(--white);
   border: none;
   border-radius: 5px;
-  font-size: calc(10px + 1vmin);
+  font-size: var(--size-3);
   color: var(--black);
 }
 

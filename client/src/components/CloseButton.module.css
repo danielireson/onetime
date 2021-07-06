@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 
-.svg {
+.icon {
   height: var(--size-1);
   width: var(--size-1);
 }

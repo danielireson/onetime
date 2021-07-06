@@ -1,18 +1,18 @@
 import styles from "./Timer.module.css";
 
-const MAX_DISPLAY_MINUTES = 1440;
+const MINUTES_IN_DAY = 1440;
 const MAX_MINUTES_DIGITS = 4;
 
 function Timer({ minutes, seconds }) {
-  const showMinutes = minutes < MAX_DISPLAY_MINUTES;
+  const showMinutes = minutes < MINUTES_IN_DAY;
   const showSeconds = minutes.toString().length < MAX_MINUTES_DIGITS;
 
   return (
     <h1 className={styles.time}>
       {!showMinutes && (
         <span className={styles.period}>
-          &gt;{MAX_DISPLAY_MINUTES}
-          <span className={styles.unit}>m</span>
+          &gt;1
+          <span className={styles.unit}>d</span>
         </span>
       )}
       {showMinutes && (

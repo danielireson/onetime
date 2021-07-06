@@ -1,5 +1,9 @@
-.wrapper {
-  margin-bottom: 1.5em;
+.form {
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1rem;
 }
 
 .baseUrl {
@@ -8,11 +12,16 @@
 }
 
 .input {
-  display: inline-block;
   background: transparent;
   border: none;
   border-bottom: dashed 0.1em var(--white);
   color: var(--white);
   font-size: 1em;
   text-align: center;
+}
+
+.error {
+  display: block;
+  font-size: 0.5em;
+  margin: 2rem 0;
 }

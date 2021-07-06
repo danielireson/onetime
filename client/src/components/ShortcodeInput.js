@@ -1,30 +1,64 @@
-import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import Button from "./Button";
 import { randomString } from "../utils/string";
 import styles from "./ShortcodeInput.module.css";
 
-function ShortcodeInput({ onChange }) {
-  const [shortcode, setShortcode] = useState(randomString(5));
+const BASE_URL = window.location.href;
+const DEFAULT_SIZE = 5;
+const MAX_SIZE = 30;
 
-  useEffect(() => {
-    onChange(shortcode);
-  });
+function ShortcodeInput({ onSubmit }) {
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const BASE_URL = window.location.href;
+  const currentValue = watch("shortcode");
+
+  let inputSize = DEFAULT_SIZE;
+
+  if (currentValue?.length > DEFAULT_SIZE) {
+    inputSize = currentValue.length;
+  }
 
   return (
-    <div className={styles.wrapper}>
-      <span className={styles.baseUrl}>{BASE_URL}</span>
-      <input
-        type="text"
-        className={styles.input}
-        value={shortcode}
-        size={shortcode.length || 1}
-        required
-        minLength="5"
-        maxLength="30"
-        onChange={(e) => setShortcode(e.target.value)}
-      />
-    </div>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit(({ shortcode }) => onSubmit(shortcode))}
+    >
+      <div className={styles.field}>
+        <span className={styles.baseUrl}>{BASE_URL}</span>
+        <input
+          type="text"
+          className={styles.input}
+          defaultValue={randomString(DEFAULT_SIZE)}
+          size={inputSize}
+          minLength={DEFAULT_SIZE}
+          maxLength={MAX_SIZE}
+          {...register("shortcode", {
+            required: true,
+            minLength: {
+              value: DEFAULT_SIZE,
+              message: `Shortcode must be at least ${DEFAULT_SIZE} characters`,
+            },
+            maxLength: {
+              value: MAX_SIZE,
+              message: `Shortcode must be less than ${MAX_SIZE} characters`,
+            },
+            pattern: {
+              value: /^[A-Z0-9]+$/i,
+              message: "Shortcode can only contain letters and numbers",
+            },
+          })}
+        />
+        {errors.shortcode && (
+          <span className={styles.error}>{errors.shortcode.message}</span>
+        )}
+      </div>
+      <Button>Create timer</Button>
+    </form>
   );
 }
 

@@ -5,17 +5,18 @@
   line-height: 1;
   padding: 1rem;
   background: transparent;
+  border: none;
   color: white;
 }
 
 .button:hover {
-  background: transparent;
   color: rgb(218, 218, 218);
+  cursor: pointer;
 }
 
 .button:active {
-  background: transparent;
   color: rgb(190, 190, 190);
+  cursor: pointer;
 }
 
 .svg {

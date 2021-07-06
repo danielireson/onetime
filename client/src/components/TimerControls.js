@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import Button from "./Button";
 import styles from "./TimerControls.module.css";
 
 function TimerControls({ showControls, updateEndTime }) {
@@ -49,37 +50,37 @@ function TimerControls({ showControls, updateEndTime }) {
             ref={customTimeInputRef}
             onChange={(e) => setCustomTimeInMins(e.target.value)}
           />
-          <button
+          <Button
             className={styles.button}
             onClick={updateEndTimeFromCustomTime}
           >
             Set time
-          </button>
+          </Button>
         </div>
       )}
       <div className={styles.presetButtons}>
-        <button
+        <Button
           className={styles.button}
           onClick={() => updateEndTimeFromFixedTime(5)}
         >
           5 mins
-        </button>
-        <button
+        </Button>
+        <Button
           className={styles.button}
           onClick={() => updateEndTimeFromFixedTime(10)}
         >
           10 mins
-        </button>
-        <button
+        </Button>
+        <Button
           className={styles.button}
           onClick={() => updateEndTimeFromFixedTime(15)}
         >
           15 mins
-        </button>
+        </Button>
       </div>
-      <button className={styles.button} onClick={toggleShowCustomTimePanel}>
+      <Button className={styles.button} onClick={toggleShowCustomTimePanel}>
         Custom time
-      </button>
+      </Button>
     </div>
   );
 }

@@ -19,6 +19,9 @@ function ShortcodeInput({ onChange }) {
         className={styles.input}
         value={shortcode}
         size={shortcode.length || 1}
+        required
+        minLength="5"
+        maxLength="30"
         onChange={(e) => setShortcode(e.target.value)}
       />
     </div>

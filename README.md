@@ -9,7 +9,7 @@ React, Node.js, Express, Socket.IO.
 
 ## Motivation
 
-This is the successor to a [similar project](https://github.com/danielireson/oneclock) that was originally built for use at a conference for sharing speaker timings across the compère and AV staff. I decided to rewrite the application to drop the Firebase dependency. More recently I've used this app over Zoom games during COVID-19 lockdowns to manage round times with players. Because timers can be loaded on separate devices it means the Zoom video chat can stay fullscreen (in contrast to a screenshare setup).
+This is the successor to a [similar project](https://github.com/danielireson/oneclock) that was originally built for use at a conference for sharing speaker timings across the compère and AV staff. I decided to rewrite the application to drop the Firebase dependency. More recently I've used this app in Zoom games during COVID-19 lockdowns to manage round times with players.
 
 ## Development
 

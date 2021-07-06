@@ -1,19 +1,19 @@
 .button {
   padding: 0.5rem 1rem;
-  background: white;
+  background: var(--white);
   border: none;
   border-radius: 5px;
   font-size: calc(10px + 1vmin);
-  color: rgb(40, 44, 52);
+  color: var(--black);
 }
 
 .button:hover:enabled {
-  background: rgb(218, 218, 218);
+  background: var(--grey-light);
   cursor: pointer;
 }
 
 .button:active:enabled {
-  background: rgb(190, 190, 190);
+  background: var(--grey);
   cursor: pointer;
 }
 

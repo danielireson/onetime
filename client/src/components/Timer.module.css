@@ -15,7 +15,7 @@
 }
 
 .unit {
-  color: rgb(133, 139, 150);
+  color: var(--grey-dark);
   margin-right: 0.1em;
 }
 

@@ -1,5 +1,5 @@
 .wrapper {
-  background-color: #282c34;
+  background-color: var(--black);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,5 +8,5 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   text-align: center;
-  color: white;
+  color: var(--white);
 }

@@ -1,4 +1,4 @@
-import styles from "./Usage.module.css";
+import styles from "./UsageSection.module.css";
 
 function Usage() {
   return (

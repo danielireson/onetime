@@ -6,7 +6,7 @@ import styles from "./HomeScreen.module.css";
 function HomeScreen() {
   const history = useHistory();
 
-  useDocumentTitle("Create new timer");
+  useDocumentTitle("Onetime");
 
   const navigateTimer = (shortcode) => {
     history.push(shortcode);

@@ -1,10 +1,10 @@
-import Icon from "./Icon";
+import FullscreenIcon from "./FullscreenIcon";
 import styles from "./FullscreenButton.module.css";
 
 function FullscreenButton({ onClick }) {
   return (
     <button className={styles.button} onClick={onClick}>
-      <Icon className={styles.icon} name="fullscreen" />
+      <FullscreenIcon className={styles.icon} />
     </button>
   );
 }

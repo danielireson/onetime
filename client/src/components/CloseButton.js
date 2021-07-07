@@ -1,4 +1,4 @@
-import Icon from "./Icon";
+import CloseIcon from "./CloseIcon";
 import styles from "./CloseButton.module.css";
 
 function CloseButton({ showButton, onClick }) {
@@ -8,7 +8,7 @@ function CloseButton({ showButton, onClick }) {
 
   return (
     <button className={styles.button} onClick={onClick}>
-      <Icon className={styles.icon} name="close" />
+      <CloseIcon className={styles.icon} />
     </button>
   );
 }

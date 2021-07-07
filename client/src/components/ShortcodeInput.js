@@ -57,7 +57,7 @@ function ShortcodeInput({ onSubmit }) {
           <span className={styles.error}>{errors.shortcode.message}</span>
         )}
       </div>
-      <Button>Create timer</Button>
+      <Button>Join timer</Button>
     </form>
   );
 }

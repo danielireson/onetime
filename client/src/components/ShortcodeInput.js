@@ -3,11 +3,11 @@ import Button from "./Button";
 import { randomString } from "../utils/string";
 import styles from "./ShortcodeInput.module.css";
 
-const BASE_URL = window.location.href;
 const DEFAULT_SIZE = 5;
 const MAX_SIZE = 30;
 
 function ShortcodeInput({ onSubmit }) {
+  const BASE_URL = window.location.href;
   const {
     register,
     watch,

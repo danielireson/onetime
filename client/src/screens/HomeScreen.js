@@ -2,7 +2,6 @@ import { useHistory } from "react-router-dom";
 import ShortcodeInput from "../components/ShortcodeInput";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import styles from "./HomeScreen.module.css";
-import UsageSection from "../components/UsageSection";
 
 function HomeScreen() {
   const history = useHistory();
@@ -16,7 +15,6 @@ function HomeScreen() {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Onetime</h1>
-      <UsageSection />
       <ShortcodeInput onSubmit={navigateTimer} />
     </div>
   );

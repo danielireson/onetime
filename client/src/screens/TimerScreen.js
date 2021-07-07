@@ -29,7 +29,7 @@ function TimerScreen() {
     <div className={styles.wrapper}>
       <CloseButton showButton={!isFullscreen} onClick={navigateHome} />
       <FullscreenButton showButton={canFullscreen} onClick={toggleFullscreen} />
-      <TimerLink showLink={!isFullscreen} url={window.location.href} />
+      <TimerLink showLink={!isFullscreen} />
       <Timer minutes={minutes} seconds={seconds} />
       <TimerControls
         showControls={!isFullscreen}

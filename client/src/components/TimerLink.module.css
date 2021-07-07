@@ -5,3 +5,13 @@
   font-weight: normal;
   word-break: break-all;
 }
+
+.baseUrl {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .baseUrl {
+    display: inline-block;
+  }
+}

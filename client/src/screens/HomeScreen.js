@@ -15,7 +15,7 @@ function HomeScreen() {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Create new timer</h1>
+      <h1 className={styles.title}>Onetime</h1>
       <UsageSection />
       <ShortcodeInput onSubmit={navigateTimer} />
     </div>

@@ -4,9 +4,9 @@
   --grey-dark: rgb(133, 139, 150);
   --grey: rgb(190, 190, 190);
   --grey-light: rgb(218, 218, 218);
-  --size-1: calc(10px + 4vmin);
-  --size-2: calc(10px + 2vmin);
-  --size-3: calc(10px + 1vmin);
+  --size-1: calc(14px + 4vmin);
+  --size-2: calc(14px + 2vmin);
+  --size-3: calc(14px + 1vmin);
 }
 
 body {

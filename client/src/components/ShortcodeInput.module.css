@@ -19,9 +19,15 @@
 .error {
   display: block;
   font-size: 0.5em;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .button {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .button {
+    margin-top: 2rem;
+  }
 }

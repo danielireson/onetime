@@ -11,6 +11,12 @@
 }
 
 .title {
-  margin: 0 0 2rem;
+  margin: 0 0 1rem;
   line-height: 1;
+}
+
+@media screen and (min-width: 576px) {
+  .title {
+    margin: 0 0 2rem;
+  }
 }

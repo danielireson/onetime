@@ -1,6 +1,5 @@
 .link {
-  margin-top: 0;
-  padding: 0 1rem;
+  margin: 0;
   font-size: var(--size-2);
   font-weight: normal;
   word-break: break-all;

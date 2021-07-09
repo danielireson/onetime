@@ -2,10 +2,6 @@
   margin-bottom: 1.5rem;
 }
 
-.field {
-  margin-bottom: 1rem;
-}
-
 .baseUrl {
   color: var(--grey-dark);
   user-select: none;
@@ -23,5 +19,9 @@
 .error {
   display: block;
   font-size: 0.5em;
-  margin: 2rem 0;
+  margin-top: 2rem;
+}
+
+.button {
+  margin-top: 2rem;
 }

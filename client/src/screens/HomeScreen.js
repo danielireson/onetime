@@ -1,16 +1,12 @@
-import { useHistory } from "react-router-dom";
 import ShortcodeInput from "../components/ShortcodeInput";
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import useNavigation from "../hooks/useNavigation";
 import styles from "./HomeScreen.module.css";
 
 function HomeScreen() {
-  const history = useHistory();
+  const { navigateTimer } = useNavigation();
 
   useDocumentTitle("Onetime");
-
-  const navigateTimer = (shortcode) => {
-    history.push(shortcode);
-  };
 
   return (
     <div className={styles.wrapper}>

@@ -27,6 +27,7 @@ function ShortcodeInput({ onSubmit }) {
     <form
       className={styles.form}
       onSubmit={handleSubmit(({ shortcode }) => onSubmit(shortcode))}
+      noValidate
     >
       <div className={styles.field}>
         <span className={styles.baseUrl}>{BASE_URL}</span>

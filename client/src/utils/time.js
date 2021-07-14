@@ -1,7 +1,13 @@
+/**
+ * Check whether a UNIX timestamp is valid.
+ */
 export function isValid(timestamp) {
   return !!new Date(timestamp).getTime();
 }
 
+/**
+ * Convert UNIX timestamp to minutes and seconds.
+ */
 export function friendlyTime(timestamp) {
   // convert milliseconds to whole minutes and remaining seconds
   const totalSeconds = (timestamp - Date.now()) / 1000;
@@ -22,6 +28,11 @@ export function friendlyTime(timestamp) {
   };
 }
 
+/**
+ * Get future time from additional minutes.
+ *
+ * Returns UNIX timestamp.
+ */
 export function futureTime(minutes) {
   if (isNaN(minutes)) {
     return Date.now();

@@ -1,3 +1,6 @@
+/**
+ * Generate random alphanumeric lowercase string.
+ */
 export function randomString(length, value = "") {
   if (value.length === length) {
     return value;

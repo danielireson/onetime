@@ -1,13 +1,22 @@
 .wrapper {
-  background-color: var(--black);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   text-align: center;
+}
+
+.wrapper.darkTheme {
+  background-color: var(--black);
   color: var(--white);
+}
+
+.wrapper.lightTheme {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 .title {

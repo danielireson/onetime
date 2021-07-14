@@ -1,0 +1,25 @@
+.button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  line-height: 1;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--white);
+}
+
+.button:hover {
+  color: var(--grey-light);
+  cursor: pointer;
+}
+
+.button:active {
+  color: var(--grey);
+  cursor: pointer;
+}
+
+.icon {
+  height: var(--size-1);
+  width: var(--size-1);
+}

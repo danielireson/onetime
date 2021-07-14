@@ -19,7 +19,7 @@ function HomeScreen() {
         [styles.lightTheme]: isLightTheme,
       })}
     >
-      <h1 className={styles.title}>Onetime</h1>
+      <Logo />
       <ShortcodeInput onSubmit={navigateTimer} />
       <ThemeToggle />
     </div>

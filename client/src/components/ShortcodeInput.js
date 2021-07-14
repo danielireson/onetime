@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import Button from "./Button";
+import useTheme from "../hooks/useTheme";
 import { randomString } from "../utils/string";
+import { classList } from "../utils/style";
 import styles from "./ShortcodeInput.module.css";
 
 const DEFAULT_SIZE = 5;
@@ -8,6 +10,7 @@ const MAX_SIZE = 30;
 
 function ShortcodeInput({ onSubmit }) {
   const BASE_URL = window.location.href;
+  const { isDarkTheme, isLightTheme } = useTheme();
   const {
     register,
     watch,
@@ -33,7 +36,10 @@ function ShortcodeInput({ onSubmit }) {
         <span className={styles.baseUrl}>{BASE_URL}</span>
         <input
           type="text"
-          className={styles.input}
+          className={classList(styles.input, {
+            [styles.darkTheme]: isDarkTheme,
+            [styles.lightTheme]: isLightTheme,
+          })}
           defaultValue={randomString(DEFAULT_SIZE)}
           size={inputSize}
           minLength={DEFAULT_SIZE}

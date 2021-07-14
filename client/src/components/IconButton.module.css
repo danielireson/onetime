@@ -1,0 +1,36 @@
+.button {
+  line-height: 1;
+  padding: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button.darkTheme {
+  color: var(--white);
+}
+
+.button.darkTheme:hover {
+  color: var(--grey-light);
+}
+
+.button.darkTheme:active {
+  color: var(--grey);
+}
+
+.button.lightTheme {
+  color: var(--grey-light);
+}
+
+.button.lightTheme:hover {
+  color: var(--grey);
+}
+
+.button.lightTheme:active {
+  color: var(--grey-dark);
+}
+
+.button svg {
+  height: var(--size-1);
+  width: var(--size-1);
+}

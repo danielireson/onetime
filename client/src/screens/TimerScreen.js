@@ -41,7 +41,7 @@ function TimerScreen() {
         showControls={!isFullscreen}
         updateEndTime={updateEndTime}
       />
-      <ThemeToggle />
+      <ThemeToggle showButton={!isFullscreen} />
     </div>
   );
 }

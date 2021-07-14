@@ -1,11 +1,14 @@
+import IconButton from "./IconButton";
 import FullscreenIcon from "./FullscreenIcon";
 import styles from "./FullscreenButton.module.css";
 
 function FullscreenButton({ onClick }) {
   return (
-    <button className={styles.button} onClick={onClick}>
-      <FullscreenIcon className={styles.icon} />
-    </button>
+    <IconButton
+      className={styles.button}
+      icon={<FullscreenIcon />}
+      onClick={onClick}
+    />
   );
 }
 

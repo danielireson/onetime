@@ -1,14 +1,18 @@
+import IconButton from "./IconButton";
 import ThemeIcon from "./ThemeIcon";
 import useTheme from "../hooks/useTheme";
 import styles from "./ThemeToggle.module.css";
 
-function ThemeToggle() {
+function ThemeToggle({ showButton }) {
   const { toggleTheme } = useTheme();
 
   return (
-    <button className={styles.button} onClick={toggleTheme}>
-      <ThemeIcon className={styles.icon} />
-    </button>
+    <IconButton
+      className={styles.button}
+      icon={<ThemeIcon />}
+      onClick={toggleTheme}
+      showButton={showButton}
+    />
   );
 }
 

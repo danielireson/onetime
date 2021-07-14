@@ -11,9 +11,16 @@
   background: transparent;
   border: none;
   border-bottom: dashed 0.1em var(--grey-dark);
-  color: var(--white);
   font-size: 1em;
   text-align: center;
+}
+
+.input.darkTheme {
+  color: var(--white);
+}
+
+.input.lightTheme {
+  color: var(--black);
 }
 
 .input:focus {

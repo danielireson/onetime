@@ -6,9 +6,9 @@ function CloseButton({ showButton, onClick }) {
   return (
     <IconButton
       className={styles.button}
+      showButton={showButton}
       icon={<CloseIcon />}
       onClick={onClick}
-      showButton={showButton}
     />
   );
 }

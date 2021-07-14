@@ -9,9 +9,9 @@ function ThemeToggle({ showButton }) {
   return (
     <IconButton
       className={styles.button}
+      showButton={showButton}
       icon={<ThemeIcon />}
       onClick={toggleTheme}
-      showButton={showButton}
     />
   );
 }

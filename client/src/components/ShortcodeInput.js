@@ -9,7 +9,6 @@ const DEFAULT_SIZE = 5;
 const MAX_SIZE = 30;
 
 function ShortcodeInput({ onSubmit }) {
-  const BASE_URL = window.location.href;
   const { isDarkTheme, isLightTheme } = useTheme();
   const {
     register,
@@ -17,6 +16,8 @@ function ShortcodeInput({ onSubmit }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const baseUrl = window.location.href;
 
   const currentValue = watch("shortcode");
 
@@ -33,7 +34,7 @@ function ShortcodeInput({ onSubmit }) {
       noValidate
     >
       <div className={styles.field}>
-        <span className={styles.baseUrl}>{BASE_URL}</span>
+        <span className={styles.baseUrl}>{baseUrl}</span>
         <input
           type="text"
           className={classList(styles.input, {

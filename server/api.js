@@ -5,7 +5,7 @@ const SOCKET_EVENT = "change";
 const ROOM_NAMESPACE = "timers";
 
 io.on("connection", function (socket) {
-  const timerId = socket.handshake.query.timerId;
+  const timerId = socket.handshake.query.timerId.toLowerCase();
   const roomId = `${ROOM_NAMESPACE}/${timerId}`;
 
   socket.join(roomId);

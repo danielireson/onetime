@@ -1,13 +1,17 @@
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Button from "./Button";
-import useAutofocus from "../hooks/useAutofocus";
 import styles from "./TimerControls.module.css";
 
 function TimerControls({ hidden, updateEndTime }) {
   const [showCustomTimePanel, setShowCustomTimePanel] = useState(false);
-  const [customTimeInMins, setCustomTimeInMins] = useState("");
+  const [customTimeInMins, setCustomTimeInMins] = useState();
   const customTimeInputRef = useRef();
-  useAutofocus(customTimeInputRef);
+
+  useLayoutEffect(() => {
+    if (customTimeInputRef.current) {
+      customTimeInputRef.current.focus();
+    }
+  });
 
   if (hidden) {
     return null;

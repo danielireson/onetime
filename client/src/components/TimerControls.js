@@ -3,11 +3,15 @@ import Button from "./Button";
 import useAutofocus from "../hooks/useAutofocus";
 import styles from "./TimerControls.module.css";
 
-function TimerControls({ showControls, updateEndTime }) {
+function TimerControls({ hidden, updateEndTime }) {
   const [showCustomTimePanel, setShowCustomTimePanel] = useState(false);
   const [customTimeInMins, setCustomTimeInMins] = useState("");
   const customTimeInputRef = useRef();
   useAutofocus(customTimeInputRef);
+
+  if (hidden) {
+    return null;
+  }
 
   const toggleShowCustomTimePanel = () => {
     setShowCustomTimePanel(!showCustomTimePanel);
@@ -29,10 +33,6 @@ function TimerControls({ showControls, updateEndTime }) {
     updateEndTime(timeInMinutes);
     resetCustomTimePanel();
   };
-
-  if (!showControls) {
-    return null;
-  }
 
   return (
     <div className={styles.wrapper}>

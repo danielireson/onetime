@@ -25,15 +25,12 @@ function TimerScreen() {
 
   return (
     <ScreenWrapper>
-      <CloseButton showButton={!isFullscreen} onClick={navigateHome} />
-      <FullscreenButton showButton={canFullscreen} onClick={toggleFullscreen} />
-      <TimerLink showLink={!isFullscreen} />
+      <CloseButton hidden={isFullscreen} onClick={navigateHome} />
+      <FullscreenButton hidden={!canFullscreen} onClick={toggleFullscreen} />
+      <TimerLink hidden={isFullscreen} />
       <Timer minutes={minutes} seconds={seconds} />
-      <TimerControls
-        showControls={!isFullscreen}
-        updateEndTime={updateEndTime}
-      />
-      <ThemeToggle showButton={!isFullscreen} />
+      <TimerControls hidden={isFullscreen} updateEndTime={updateEndTime} />
+      <ThemeToggle hidden={isFullscreen} />
     </ScreenWrapper>
   );
 }

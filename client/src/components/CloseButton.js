@@ -2,12 +2,12 @@ import IconButton from "./IconButton";
 import CloseIcon from "./CloseIcon";
 import styles from "./CloseButton.module.css";
 
-function CloseButton({ showButton, onClick }) {
+function CloseButton({ hidden, onClick }) {
   return (
     <IconButton
       className={styles.button}
-      showButton={showButton}
       icon={<CloseIcon />}
+      hidden={hidden}
       onClick={onClick}
     />
   );

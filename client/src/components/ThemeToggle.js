@@ -3,14 +3,14 @@ import ThemeIcon from "./ThemeIcon";
 import useTheme from "../hooks/useTheme";
 import styles from "./ThemeToggle.module.css";
 
-function ThemeToggle({ showButton }) {
+function ThemeToggle({ hidden }) {
   const { toggleTheme } = useTheme();
 
   return (
     <IconButton
       className={styles.button}
-      showButton={showButton}
       icon={<ThemeIcon />}
+      hidden={hidden}
       onClick={toggleTheme}
     />
   );

@@ -2,10 +2,10 @@ import useTheme from "../hooks/useTheme";
 import { classList } from "../utils/style";
 import styles from "./IconButton.module.css";
 
-function IconButton({ className, icon, onClick, showButton = true }) {
+function IconButton({ className, icon, hidden, onClick }) {
   const { isDarkTheme, isLightTheme } = useTheme();
 
-  if (!showButton) {
+  if (hidden) {
     return null;
   }
 

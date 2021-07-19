@@ -28,12 +28,6 @@
   border-bottom: dashed 0.1em var(--white);
 }
 
-.error {
-  display: block;
-  font-size: 0.5em;
-  margin-top: 1rem;
-}
-
 .button {
   margin-top: 1.5rem;
 }

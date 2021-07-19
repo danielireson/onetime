@@ -37,7 +37,12 @@ function ShortcodeInput({ onSubmit }) {
     watch,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      shortcode: randomString(DEFAULT_SIZE),
+    },
+  });
 
   const baseUrl = window.location.href;
 
@@ -56,17 +61,15 @@ function ShortcodeInput({ onSubmit }) {
             [styles.darkTheme]: isDarkTheme,
             [styles.lightTheme]: isLightTheme,
           })}
-          defaultValue={randomString(DEFAULT_SIZE)}
           size={inputSize(watch("shortcode"), DEFAULT_SIZE)}
           minLength={DEFAULT_SIZE}
           maxLength={MAX_SIZE}
           {...register("shortcode", validations)}
         />
-        {errors.shortcode && (
-          <span className={styles.error}>{errors.shortcode.message}</span>
-        )}
       </div>
-      <Button className={styles.button}>Join timer</Button>
+      <Button className={styles.button} disabled={errors.shortcode}>
+        Join timer
+      </Button>
     </form>
   );
 }

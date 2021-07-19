@@ -15,8 +15,12 @@ const validations = {
 };
 
 function CustomTimeInput({ onUpdateEndTime }) {
-  const { register, handleSubmit } = useForm();
   const formRef = useFormAutofocus();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onChange" });
 
   return (
     <form
@@ -31,7 +35,9 @@ function CustomTimeInput({ onUpdateEndTime }) {
         placeholder="Time in minutes"
         {...register("mins", validations)}
       />
-      <Button className={styles.button}>Set time</Button>
+      <Button className={styles.button} disabled={errors.mins}>
+        Set time
+      </Button>
     </form>
   );
 }

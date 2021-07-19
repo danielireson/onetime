@@ -49,7 +49,10 @@ function ShortcodeInput({ onSubmit }) {
           minLength={DEFAULT_SIZE}
           maxLength={MAX_SIZE}
           {...register("shortcode", {
-            required: true,
+            required: {
+              value: true,
+              message: `Shortcode must be at least ${DEFAULT_SIZE} characters`,
+            },
             minLength: {
               value: DEFAULT_SIZE,
               message: `Shortcode must be at least ${DEFAULT_SIZE} characters`,

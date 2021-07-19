@@ -10,7 +10,7 @@ function TimerControls({ hidden, onUpdateEndTime }) {
     return null;
   }
 
-  const updateEndTime = (mins) => {
+  const updateCustomEndTime = (mins) => {
     onUpdateEndTime(mins);
     toggleShowCustomTimeInput();
   };
@@ -18,16 +18,16 @@ function TimerControls({ hidden, onUpdateEndTime }) {
   return (
     <div className={styles.wrapper}>
       {showCustomTimeInput && (
-        <CustomTimeInput onUpdateEndTime={updateEndTime} />
+        <CustomTimeInput onUpdateEndTime={updateCustomEndTime} />
       )}
       <div className={styles.presetButtons}>
-        <Button className={styles.button} onClick={() => updateEndTime(5)}>
+        <Button className={styles.button} onClick={() => onUpdateEndTime(5)}>
           5 mins
         </Button>
-        <Button className={styles.button} onClick={() => updateEndTime(10)}>
+        <Button className={styles.button} onClick={() => onUpdateEndTime(10)}>
           10 mins
         </Button>
-        <Button className={styles.button} onClick={() => updateEndTime(15)}>
+        <Button className={styles.button} onClick={() => onUpdateEndTime(15)}>
           15 mins
         </Button>
       </div>

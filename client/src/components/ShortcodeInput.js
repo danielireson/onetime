@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Button from "./Button";
 import useTheme from "../hooks/useTheme";
+import useFormAutofocus from "../hooks/useFormAutofocus";
 import { randomString } from "../utils/string";
 import { classList } from "../utils/style";
 import styles from "./ShortcodeInput.module.css";
@@ -10,6 +11,7 @@ const MAX_SIZE = 30;
 
 function ShortcodeInput({ onSubmit }) {
   const { isDarkTheme, isLightTheme } = useTheme();
+  const formRef = useFormAutofocus();
   const {
     register,
     watch,
@@ -32,6 +34,7 @@ function ShortcodeInput({ onSubmit }) {
       className={styles.form}
       onSubmit={handleSubmit(({ shortcode }) => onSubmit(shortcode))}
       noValidate
+      ref={formRef}
     >
       <div className={styles.field}>
         <span className={styles.baseUrl}>{baseUrl}</span>

@@ -14,7 +14,7 @@ export default function useFullscreenToggle() {
     return () => {
       document.removeEventListener("fullscreenchange", handleChange);
     };
-  });
+  }, [toggleIsFullscreen]);
 
   const requestFullscreen = () => {
     try {

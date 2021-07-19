@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--grey-dark);
+  border-radius: 5px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.button {
+  margin-left: 1rem;
+}

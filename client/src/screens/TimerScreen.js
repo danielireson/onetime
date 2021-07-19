@@ -29,7 +29,7 @@ function TimerScreen() {
       <FullscreenButton hidden={!canFullscreen} onClick={toggleFullscreen} />
       <TimerLink hidden={isFullscreen} />
       <Timer minutes={minutes} seconds={seconds} />
-      <TimerControls hidden={isFullscreen} updateEndTime={updateEndTime} />
+      <TimerControls hidden={isFullscreen} onUpdateEndTime={updateEndTime} />
       <ThemeToggle hidden={isFullscreen} />
     </ScreenWrapper>
   );

@@ -20,25 +20,3 @@
     display: inline-block;
   }
 }
-
-.panel {
-  display: flex;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: var(--grey-dark);
-  border-radius: 5px;
-}
-
-.panelInput {
-  flex: 1;
-  border: none;
-  border-radius: 5px;
-}
-
-.panelInput:focus {
-  outline: none;
-}
-
-.panel .button {
-  margin-left: 1rem;
-}

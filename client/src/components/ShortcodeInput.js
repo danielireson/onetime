@@ -4,6 +4,7 @@ import useTheme from "../hooks/useTheme";
 import useFormAutofocus from "../hooks/useFormAutofocus";
 import { randomString } from "../utils/string";
 import { classList } from "../utils/style";
+import { inputSize } from "../utils/form";
 import styles from "./ShortcodeInput.module.css";
 
 const DEFAULT_SIZE = 5;
@@ -21,14 +22,6 @@ function ShortcodeInput({ onSubmit }) {
 
   const baseUrl = window.location.href;
 
-  const currentValue = watch("shortcode");
-
-  let inputSize = DEFAULT_SIZE;
-
-  if (currentValue?.length > DEFAULT_SIZE) {
-    inputSize = currentValue.length;
-  }
-
   return (
     <form
       className={styles.form}
@@ -45,7 +38,7 @@ function ShortcodeInput({ onSubmit }) {
             [styles.lightTheme]: isLightTheme,
           })}
           defaultValue={randomString(DEFAULT_SIZE)}
-          size={inputSize}
+          size={inputSize(watch("shortcode"), DEFAULT_SIZE)}
           minLength={DEFAULT_SIZE}
           maxLength={MAX_SIZE}
           {...register("shortcode", {

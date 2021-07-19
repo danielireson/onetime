@@ -3,6 +3,17 @@ import Button from "./Button";
 import useFormAutofocus from "../hooks/useFormAutofocus";
 import styles from "./CustomTimeInput.module.css";
 
+const validations = {
+  required: {
+    value: true,
+    message: `Custom time must be zero or greater`,
+  },
+  min: {
+    value: 0,
+    message: "Custom time must be zero or greater",
+  },
+};
+
 function CustomTimeInput({ onUpdateEndTime }) {
   const { register, handleSubmit } = useForm();
   const formRef = useFormAutofocus();
@@ -18,7 +29,7 @@ function CustomTimeInput({ onUpdateEndTime }) {
         type="number"
         className={styles.input}
         placeholder="Time in minutes"
-        {...register("mins", { required: true, min: 0 })}
+        {...register("mins", validations)}
       />
       <Button className={styles.button}>Set time</Button>
     </form>

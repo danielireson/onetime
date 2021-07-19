@@ -10,6 +10,25 @@ import styles from "./ShortcodeInput.module.css";
 const DEFAULT_SIZE = 5;
 const MAX_SIZE = 30;
 
+const validations = {
+  required: {
+    value: true,
+    message: `Shortcode must be at least ${DEFAULT_SIZE} characters`,
+  },
+  minLength: {
+    value: DEFAULT_SIZE,
+    message: `Shortcode must be at least ${DEFAULT_SIZE} characters`,
+  },
+  maxLength: {
+    value: MAX_SIZE,
+    message: `Shortcode must be less than ${MAX_SIZE} characters`,
+  },
+  pattern: {
+    value: /^[A-Z0-9]+$/i,
+    message: "Shortcode can only contain letters and numbers",
+  },
+};
+
 function ShortcodeInput({ onSubmit }) {
   const { isDarkTheme, isLightTheme } = useTheme();
   const formRef = useFormAutofocus();
@@ -41,24 +60,7 @@ function ShortcodeInput({ onSubmit }) {
           size={inputSize(watch("shortcode"), DEFAULT_SIZE)}
           minLength={DEFAULT_SIZE}
           maxLength={MAX_SIZE}
-          {...register("shortcode", {
-            required: {
-              value: true,
-              message: `Shortcode must be at least ${DEFAULT_SIZE} characters`,
-            },
-            minLength: {
-              value: DEFAULT_SIZE,
-              message: `Shortcode must be at least ${DEFAULT_SIZE} characters`,
-            },
-            maxLength: {
-              value: MAX_SIZE,
-              message: `Shortcode must be less than ${MAX_SIZE} characters`,
-            },
-            pattern: {
-              value: /^[A-Z0-9]+$/i,
-              message: "Shortcode can only contain letters and numbers",
-            },
-          })}
+          {...register("shortcode", validations)}
         />
         {errors.shortcode && (
           <span className={styles.error}>{errors.shortcode.message}</span>

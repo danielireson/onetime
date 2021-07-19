@@ -1,22 +1,18 @@
-import { useState } from "react";
 import Button from "./Button";
 import CustomTimeInput from "./CustomTimeInput";
+import useToggle from "../hooks/useToggle";
 import styles from "./TimerControls.module.css";
 
 function TimerControls({ hidden, onUpdateEndTime }) {
-  const [showCustomTimeInput, setShowCustomTimeInput] = useState(false);
+  const [showCustomTimeInput, toggleShowCustomTimeInput] = useToggle(false);
 
   if (hidden) {
     return null;
   }
 
-  const toggleShowCustomTimeInput = () => {
-    setShowCustomTimeInput(!showCustomTimeInput);
-  };
-
   const updateEndTime = (mins) => {
     onUpdateEndTime(mins);
-    setShowCustomTimeInput(false);
+    toggleShowCustomTimeInput();
   };
 
   return (

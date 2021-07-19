@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import useToggle from "./useToggle";
 
 export default function useFullscreenToggle() {
   const hasFullsreenElement = () => !!document.fullscreenElement;
-  const [isFullscreen, setIsFullscreen] = useState(hasFullsreenElement());
+  const [isFullscreen, toggleIsFullscreen] = useToggle(hasFullsreenElement());
   const canFullscreen = document.fullscreenEnabled;
 
   useEffect(() => {
-    const handleChange = () => {
-      setIsFullscreen(hasFullsreenElement());
-    };
+    const handleChange = () => toggleIsFullscreen();
 
     document.addEventListener("fullscreenchange", handleChange);
 

@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
+import useNavigation from "./useNavigation";
 import { friendlyTime, futureTime, isValid } from "../utils/time";
 
 const SOCKET_URL = window.location.host;
-const SOCKET_EVENT = "change";
+const CHANGE_EVENT = "timer-change";
+const ERROR_EVENT = "timer-error";
 
 export default function useTimerApi(timerId) {
+  const { navigateHome } = useNavigation();
   const [endTime, setEndTime] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -16,16 +19,20 @@ export default function useTimerApi(timerId) {
       query: { timerId },
     });
 
-    socketRef.current.on(SOCKET_EVENT, (message) => {
+    socketRef.current.on(CHANGE_EVENT, (message) => {
       if (isValid(message.endTime)) {
         setEndTime(message.endTime);
       }
     });
 
+    socketRef.current.on(ERROR_EVENT, () => {
+      navigateHome();
+    });
+
     return () => {
       socketRef.current.disconnect();
     };
-  }, [timerId]);
+  }, [timerId, navigateHome]);
 
   useEffect(() => {
     const calculateMinutesAndSeconds = () => {
@@ -46,7 +53,7 @@ export default function useTimerApi(timerId) {
   }, [endTime]);
 
   const updateEndTime = (mins) => {
-    socketRef.current.emit(SOCKET_EVENT, {
+    socketRef.current.emit(CHANGE_EVENT, {
       endTime: futureTime(mins),
     });
   };

@@ -13,19 +13,23 @@
   border-bottom: dashed 0.1em var(--grey-dark);
   font-size: 1em;
   text-align: center;
+  outline: none;
 }
 
 .input.darkTheme {
   color: var(--white);
 }
 
+.input.darkTheme:focus {
+  border-bottom: dashed 0.1em var(--white);
+}
+
 .input.lightTheme {
   color: var(--black);
 }
 
-.input:focus {
-  outline: none;
-  border-bottom: dashed 0.1em var(--white);
+.input.lightTheme:focus {
+  border-bottom: dashed 0.1em var(--black);
 }
 
 .button {

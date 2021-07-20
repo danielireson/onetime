@@ -5,7 +5,7 @@ function MessageModal({ message, onClose }) {
   return (
     <>
       <p className={styles.message}>{message}</p>
-      <Button onClick={onClose}>Okay</Button>
+      {onClose && <Button onClick={onClose}>Okay</Button>}
     </>
   );
 }

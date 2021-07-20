@@ -14,5 +14,8 @@ export default function useModal() {
   const showMessageModal = (message) =>
     showModal(<MessageModal message={message} onClose={hideModal} />);
 
-  return { modal, showMessageModal, hideModal };
+  const showAlertModal = (message) =>
+    showModal(<MessageModal message={message} />);
+
+  return { modal, showMessageModal, showAlertModal, hideModal };
 }

@@ -7,10 +7,18 @@ import { friendlyTime, futureTime, isValid } from "../utils/time";
 const SOCKET_URL = window.location.host;
 const CHANGE_EVENT = "timer-change";
 const ERROR_EVENT = "timer-error";
+const CONNECT_EVENT = "connect";
+const DISCONNECT_EVENT = "disconnect";
+const DISCONNECT_REASONS = [
+  "io server disconnect",
+  "ping timeout",
+  "transport close",
+  "transport error",
+];
 
 export default function useTimerApi(timerId) {
   const { navigateHome } = useNavigation();
-  const { showMessageModal } = useModal();
+  const { showMessageModal, showAlertModal, hideModal } = useModal();
   const [endTime, setEndTime] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -28,14 +36,24 @@ export default function useTimerApi(timerId) {
     });
 
     socketRef.current.on(ERROR_EVENT, () => {
-      showMessageModal("Invalid timer link");
+      showMessageModal("Timer not found");
       navigateHome();
+    });
+
+    socketRef.current.on(DISCONNECT_EVENT, (reason) => {
+      if (DISCONNECT_REASONS.includes(reason)) {
+        showAlertModal("Attempting to reconnect...");
+      }
+    });
+
+    socketRef.current.on(CONNECT_EVENT, () => {
+      hideModal();
     });
 
     return () => {
       socketRef.current.disconnect();
     };
-  }, [timerId, navigateHome, showMessageModal]);
+  }, [timerId, navigateHome, showMessageModal, showAlertModal, hideModal]);
 
   useEffect(() => {
     const calculateMinutesAndSeconds = () => {

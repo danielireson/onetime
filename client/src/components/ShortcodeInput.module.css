@@ -10,7 +10,7 @@
 .input {
   background: transparent;
   border: none;
-  border-bottom: dashed 0.1em var(--grey-dark);
+  border-bottom: dashed 2px var(--grey-dark);
   font-size: 1em;
   text-align: center;
   outline: none;
@@ -21,7 +21,7 @@
 }
 
 .input.darkTheme:focus {
-  border-bottom: dashed 0.1em var(--white);
+  border-bottom: dashed 2px var(--white);
 }
 
 .input.lightTheme {
@@ -29,7 +29,7 @@
 }
 
 .input.lightTheme:focus {
-  border-bottom: dashed 0.1em var(--black);
+  border-bottom: dashed 2px var(--black);
 }
 
 .button {

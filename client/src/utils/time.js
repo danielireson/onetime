@@ -1,7 +1,7 @@
 /**
  * Check whether a UNIX timestamp is valid.
  */
-export function isValid(timestamp) {
+export function isValidTimestamp(timestamp) {
   return !!new Date(timestamp).getTime();
 }
 

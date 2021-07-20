@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 import useNavigation from "./useNavigation";
 import useModal from "./useModal";
-import { friendlyTime, futureTime, isValid } from "../utils/time";
+import { friendlyTime, futureTime, isValidTimestamp } from "../utils/time";
 
 const SOCKET_URL = window.location.host;
 const CHANGE_EVENT = "timer change";
@@ -30,7 +30,7 @@ export default function useTimerApi(timerId) {
     });
 
     socketRef.current.on(CHANGE_EVENT, (message) => {
-      if (isValid(message.endTime)) {
+      if (isValidTimestamp(message.endTime)) {
         setEndTime(message.endTime);
       }
     });

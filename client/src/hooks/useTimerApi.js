@@ -53,9 +53,9 @@ export default function useTimerApi(timerId) {
     };
   }, [timerId, navigateHome, showMessageModal, showAlertModal, hideModal]);
 
-  const updateEndTime = (mins) => {
+  const updateEndTime = (minutes) => {
     socketRef.current.emit(CHANGE_EVENT, {
-      endTime: futureTime(mins),
+      endTime: futureTime(minutes),
     });
   };
 

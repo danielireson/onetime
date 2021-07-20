@@ -10,8 +10,8 @@ function TimerControls({ hidden, onUpdateEndTime }) {
     return null;
   }
 
-  const updateCustomEndTime = (mins) => {
-    onUpdateEndTime(mins);
+  const updateCustomEndTime = (minutes) => {
+    onUpdateEndTime(minutes);
     toggleShowCustomTimeInput();
   };
 

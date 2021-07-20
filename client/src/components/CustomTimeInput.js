@@ -25,7 +25,7 @@ function CustomTimeInput({ onUpdateEndTime }) {
   return (
     <form
       className={styles.form}
-      onSubmit={handleSubmit(({ mins }) => onUpdateEndTime(mins))}
+      onSubmit={handleSubmit(({ minutes }) => onUpdateEndTime(minutes))}
       noValidate
       ref={formRef}
     >
@@ -33,9 +33,9 @@ function CustomTimeInput({ onUpdateEndTime }) {
         type="number"
         className={styles.input}
         placeholder="Time in minutes"
-        {...register("mins", validations)}
+        {...register("minutes", validations)}
       />
-      <Button className={styles.button} disabled={errors.mins}>
+      <Button className={styles.button} disabled={errors.minutes}>
         Set time
       </Button>
     </form>

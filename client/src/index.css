@@ -5,6 +5,7 @@
   --grey: rgb(190, 190, 199);
   --grey-light: rgb(214, 215, 219);
   --grey-lighter: rgb(228, 231, 236);
+  --overlay: rgba(10, 10, 10, 0.86);
   --size-1: calc(14px + 4vmin);
   --size-2: calc(14px + 2vmin);
   --size-3: calc(14px + 1vmin);

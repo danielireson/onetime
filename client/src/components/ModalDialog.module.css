@@ -1,0 +1,24 @@
+.modal {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.background {
+  background-color: var(--overlay);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.content {
+  position: relative;
+}

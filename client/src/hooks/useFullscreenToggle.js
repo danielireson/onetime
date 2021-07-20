@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import useToggle from "./useToggle";
+import useModal from "./useModal";
 
 export default function useFullscreenToggle() {
+  const { showMessageModal } = useModal();
   const hasFullsreenElement = () => !!document.fullscreenElement;
   const [isFullscreen, toggleIsFullscreen] = useToggle(hasFullsreenElement());
   const canFullscreen = document.fullscreenEnabled;
@@ -19,8 +21,10 @@ export default function useFullscreenToggle() {
   const requestFullscreen = () => {
     try {
       document.documentElement.requestFullscreen();
+      showMessageModal("Controls are hidden in fullscreen mode");
     } catch (error) {
-      // TODO: handle error
+      console.error(error);
+      showMessageModal("Unable to enter fullscreen mode");
     }
   };
 
@@ -28,7 +32,8 @@ export default function useFullscreenToggle() {
     try {
       document.exitFullscreen();
     } catch (error) {
-      // TODO: handle error
+      console.error(error);
+      showMessageModal("Error exiting fullscreen mode");
     }
   };
 

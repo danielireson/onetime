@@ -10,11 +10,13 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import useNavigation from "../hooks/useNavigation";
 import useTimerApi from "../hooks/useTimerApi";
 import useFullscreenToggle from "../hooks/useFullscreenToggle";
+import useTimerTicker from "../hooks/useTimerTicker";
 
 function TimerScreen() {
   const { navigateHome } = useNavigation();
   const { timerId } = useParams();
-  const { minutes, seconds, updateEndTime } = useTimerApi(timerId);
+  const { endTime, updateEndTime } = useTimerApi(timerId);
+  const { minutes, seconds } = useTimerTicker(endTime);
   const {
     canFullscreen,
     isFullscreen,

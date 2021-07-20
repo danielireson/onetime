@@ -27,6 +27,12 @@ export default function useTimerApi(timerId) {
       query: { timerId },
     });
 
+    return () => {
+      socketRef.current.disconnect();
+    };
+  }, [timerId]);
+
+  useEffect(() => {
     socketRef.current.on(CHANGE_EVENT, (message) => {
       if (isValidTimestamp(message.endTime)) {
         setEndTime(message.endTime);
@@ -47,11 +53,7 @@ export default function useTimerApi(timerId) {
     socketRef.current.on(CONNECT_EVENT, () => {
       hideModal();
     });
-
-    return () => {
-      socketRef.current.disconnect();
-    };
-  }, [timerId, navigateHome, showMessageModal, showAlertModal, hideModal]);
+  }, [navigateHome, showMessageModal, showAlertModal, hideModal]);
 
   const updateEndTime = (minutes) => {
     socketRef.current.emit(CHANGE_EVENT, {

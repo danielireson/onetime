@@ -6,7 +6,7 @@ import styles from "./ScreenWrapper.module.css";
 
 function ScreenWrapper({ children }) {
   const { isDarkTheme, isLightTheme } = useTheme();
-  const { modal } = useModal();
+  const { modal, hideModal } = useModal();
 
   return (
     <div
@@ -16,7 +16,7 @@ function ScreenWrapper({ children }) {
       })}
     >
       {children}
-      {modal && <ModalDialog modal={modal} />}
+      {modal && <ModalDialog modal={modal} onClose={hideModal} />}
     </div>
   );
 }

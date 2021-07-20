@@ -24,8 +24,8 @@ const validations = {
     message: `Shortcode must be less than ${MAX_SIZE} characters`,
   },
   pattern: {
-    value: /^[A-Z0-9]+$/i,
-    message: "Shortcode can only contain letters and numbers",
+    value: /^[A-Z0-9-_]+$/i,
+    message: "Shortcode can contain letters, numbers, hyphens, underscores",
   },
 };
 

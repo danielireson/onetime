@@ -1,4 +1,4 @@
-const TIMER_ID_SCHEME = /^[A-Z0-9]+$/i;
+const TIMER_ID_SCHEME = /^[A-Z0-9-_]+$/i;
 
 /**
  * Check whether a timer id is valid.

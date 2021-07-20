@@ -1,8 +1,14 @@
 const timers = {};
 
+/**
+ * Get timer from in-memory data store.
+ */
 module.exports.getTimer = (timerId) => timers[timerId];
 
-module.exports.createTimer = (timerId, endTime) => {
+/**
+ * Create or update timer in in-memory data store.
+ */
+module.exports.setTimer = (timerId, endTime) => {
   const timer = {
     endTime,
   };
@@ -12,6 +18,9 @@ module.exports.createTimer = (timerId, endTime) => {
   return timer;
 };
 
+/**
+ * Delete timer from in-memory data store.
+ */
 module.exports.deleteTimer = (timerId) => {
   delete timers[timerId];
 };

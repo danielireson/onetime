@@ -1,5 +1,5 @@
 const io = require("socket.io")();
-const { getTimer, createTimer, deleteTimer } = require("./db");
+const { getTimer, setTimer, deleteTimer } = require("./db");
 const { isValidTimerId, isValidTimestamp } = require("./validation");
 
 const ROOM_NAMESPACE = "timers";
@@ -23,7 +23,7 @@ io.on("connection", function (socket) {
 
   socket.on(CHANGE_EVENT, (message) => {
     if (isValidTimestamp(message.endTime)) {
-      io.to(roomId).emit(CHANGE_EVENT, createTimer(timerId, message.endTime));
+      io.to(roomId).emit(CHANGE_EVENT, setTimer(timerId, message.endTime));
     }
   });
 });

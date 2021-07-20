@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 import useNavigation from "./useNavigation";
+import useModal from "./useModal";
 import { friendlyTime, futureTime, isValid } from "../utils/time";
 
 const SOCKET_URL = window.location.host;
@@ -9,6 +10,7 @@ const ERROR_EVENT = "timer-error";
 
 export default function useTimerApi(timerId) {
   const { navigateHome } = useNavigation();
+  const { showMessageModal } = useModal();
   const [endTime, setEndTime] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -26,13 +28,14 @@ export default function useTimerApi(timerId) {
     });
 
     socketRef.current.on(ERROR_EVENT, () => {
+      showMessageModal("Invalid timer link");
       navigateHome();
     });
 
     return () => {
       socketRef.current.disconnect();
     };
-  }, [timerId, navigateHome]);
+  }, [timerId, navigateHome, showMessageModal]);
 
   useEffect(() => {
     const calculateMinutesAndSeconds = () => {

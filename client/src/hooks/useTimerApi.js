@@ -5,8 +5,8 @@ import useModal from "./useModal";
 import { friendlyTime, futureTime, isValid } from "../utils/time";
 
 const SOCKET_URL = window.location.host;
-const CHANGE_EVENT = "timer-change";
-const ERROR_EVENT = "timer-error";
+const CHANGE_EVENT = "timer change";
+const ERROR_EVENT = "timer error";
 const CONNECT_EVENT = "connect";
 const DISCONNECT_EVENT = "disconnect";
 const DISCONNECT_REASONS = [

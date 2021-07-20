@@ -3,8 +3,8 @@ const { getTimer, setTimer, deleteTimer } = require("./db");
 const { isValidTimerId, isValidTimestamp } = require("./validation");
 
 const ROOM_NAMESPACE = "timers";
-const CHANGE_EVENT = "timer-change";
-const ERROR_EVENT = "timer-error";
+const CHANGE_EVENT = "timer change";
+const ERROR_EVENT = "timer error";
 
 io.on("connection", function (socket) {
   if (!isValidTimerId(socket.handshake.query.timerId)) {

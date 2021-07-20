@@ -64,6 +64,7 @@ function ShortcodeInput({ onSubmit }) {
           size={inputSize(watch("shortcode"), DEFAULT_SIZE)}
           minLength={DEFAULT_SIZE}
           maxLength={MAX_SIZE}
+          spellCheck={false}
           {...register("shortcode", validations)}
         />
       </div>

@@ -8,13 +8,13 @@
 export function classList(...args) {
   return args.reduce((result, arg) => {
     if (typeof arg === "string") {
-      return result + ` ${arg}`;
+      return result + `${arg} `;
     } else if (typeof arg === "object") {
       return (
         result +
         Object.entries(arg)
           .filter(([_, bool]) => bool)
-          .map(([str, _]) => ` ${str}`)
+          .map(([str, _]) => `${str} `)
       );
     } else {
       return result;

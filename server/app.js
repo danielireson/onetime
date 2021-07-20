@@ -6,7 +6,7 @@ const app = express();
 
 // middleware
 app.use(logger("dev"));
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "../client/build")));
 
 // serve client
 app.get("/*", function (req, res) {

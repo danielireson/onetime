@@ -14,5 +14,12 @@
 }
 
 .button {
-  margin-left: 1rem;
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .button {
+    display: block;
+    margin-left: 1rem;
+  }
 }

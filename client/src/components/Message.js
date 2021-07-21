@@ -1,7 +1,7 @@
 import Button from "./Button";
-import styles from "./MessageModal.module.css";
+import styles from "./Message.module.css";
 
-function MessageModal({ message, onClose }) {
+function Message({ message, onClose }) {
   return (
     <>
       <p className={styles.message}>{message}</p>
@@ -10,4 +10,4 @@ function MessageModal({ message, onClose }) {
   );
 }
 
-export default MessageModal;
+export default Message;

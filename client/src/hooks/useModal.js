@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import MessageModal from "../components/MessageModal";
+import Message from "../components/Message";
 import { ModalContext } from "../contexts/ModalContext";
 
 export default function useModal() {
@@ -12,10 +12,9 @@ export default function useModal() {
   const { modal, showModal, hideModal } = context;
 
   const showMessageModal = (message) =>
-    showModal(<MessageModal message={message} onClose={hideModal} />);
+    showModal(<Message message={message} onClose={hideModal} />);
 
-  const showAlertModal = (message) =>
-    showModal(<MessageModal message={message} />);
+  const showAlertModal = (message) => showModal(<Message message={message} />);
 
   return { modal, showMessageModal, showAlertModal, hideModal };
 }

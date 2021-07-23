@@ -16,7 +16,7 @@ function TimerControls({ hidden, onUpdateEndTime }) {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div data-testid="timer-controls" className={styles.wrapper}>
       {showCustomTimeInput && (
         <CustomTimeInput onUpdateEndTime={updateCustomEndTime} />
       )}

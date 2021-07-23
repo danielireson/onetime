@@ -54,8 +54,11 @@ function ShortcodeInput({ onSubmit }) {
       ref={formRef}
     >
       <div className={styles.field}>
-        <span className={styles.baseUrl}>{baseUrl}</span>
+        <span data-testid="shortcode-base-url" className={styles.baseUrl}>
+          {baseUrl}
+        </span>
         <input
+          data-testid="shortcode-input"
           type="text"
           className={classList(styles.input, {
             [styles.darkTheme]: isDarkTheme,
@@ -68,7 +71,11 @@ function ShortcodeInput({ onSubmit }) {
           {...register("shortcode", validations)}
         />
       </div>
-      <Button className={styles.button} disabled={errors.shortcode}>
+      <Button
+        data-testid="shortcode-button"
+        className={styles.button}
+        disabled={errors.shortcode}
+      >
         Join timer
       </Button>
     </form>

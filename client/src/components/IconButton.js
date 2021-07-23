@@ -2,7 +2,7 @@ import useTheme from "../hooks/useTheme";
 import { classList } from "../utils/style";
 import styles from "./IconButton.module.css";
 
-function IconButton({ className, icon, hidden, onClick }) {
+function IconButton({ className, icon, hidden, ...props }) {
   const { isDarkTheme, isLightTheme } = useTheme();
 
   if (hidden) {
@@ -19,7 +19,7 @@ function IconButton({ className, icon, hidden, onClick }) {
         },
         className
       )}
-      onClick={onClick}
+      {...props}
     >
       {icon}
     </button>

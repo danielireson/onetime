@@ -8,6 +8,7 @@ function ThemeToggle({ hidden }) {
 
   return (
     <IconButton
+      data-testid="theme-toggle"
       className={styles.button}
       icon={<ThemeIcon />}
       hidden={hidden}

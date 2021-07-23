@@ -10,7 +10,7 @@ function TimerLink({ hidden }) {
   const shortcode = window.location.pathname.split("/")[1];
 
   return (
-    <h2 className={styles.link}>
+    <h2 data-testid="timer-link" className={styles.link}>
       <span className={styles.baseUrl}>{BASE_URL}/</span>
       {shortcode}
     </h2>

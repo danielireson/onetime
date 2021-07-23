@@ -8,7 +8,7 @@ function Timer({ minutes, seconds }) {
   const showSeconds = minutes.toString().length < MAX_MINUTES_DIGITS;
 
   return (
-    <h1 className={styles.time}>
+    <h1 data-testid="timer" className={styles.time}>
       {!showMinutes && (
         <span className={styles.period}>
           &gt;1

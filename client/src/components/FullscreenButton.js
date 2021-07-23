@@ -5,6 +5,7 @@ import styles from "./FullscreenButton.module.css";
 function FullscreenButton({ hidden, onClick }) {
   return (
     <IconButton
+      data-testid="fullscreen-button"
       className={styles.button}
       icon={<FullscreenIcon />}
       hidden={hidden}

@@ -9,7 +9,7 @@ React, Node.js, Express, Socket.IO.
 
 ## Motivation
 
-This was originally built for use at a conference for sharing speaker timings across the compère and AV staff. More recently I've used it in games over Zoom to manage times with players.
+This was originally built for use at a conference for sharing speaker timings across the compère and AV staff. More recently I've used this in Zoom games to manage round times with players.
 
 ## Development
 

@@ -1,7 +1,10 @@
-const createError = require("http-errors");
-const express = require("express");
-const path = require("path");
-const logger = require("morgan");
+import createError from "http-errors";
+import express from "express";
+import path from "path";
+import logger from "morgan";
+
+const __dirname = import.meta.dirname;
+
 const app = express();
 
 // middleware
@@ -10,7 +13,7 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 
 // serve client
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 
 // catch 404 and forward to error handler
@@ -29,4 +32,4 @@ app.use(function (err, req, res, next) {
     .send(message);
 });
 
-module.exports = app;
+export default app;

@@ -3,10 +3,12 @@
 /**
  * Module dependencies.
  */
-const app = require("../server/app");
-const api = require("../server/api");
-const debug = require("debug")("onetime:server");
-const http = require("http");
+import app from "../server/app.js";
+import api from "../server/api.js";
+import debug from "debug";
+import http from "http";
+
+const log = debug(`onetime:server`);
 
 /**
  * Get port from environment and store in Express.
@@ -77,5 +79,5 @@ function onError(error) {
 function onListening() {
   const addr = server.address();
   const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-  debug("Listening on " + bind);
+  log("Listening on " + bind);
 }

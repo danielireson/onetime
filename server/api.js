@@ -1,10 +1,12 @@
-const io = require("socket.io")();
-const { getTimer, setTimer, deleteTimer } = require("./db");
-const { isValidTimerId, isValidTimestamp } = require("./validation");
+import { Server } from "socket.io";
+import { getTimer, setTimer, deleteTimer } from "./db.js";
+import { isValidTimerId, isValidTimestamp } from "./validation.js";
 
 const ROOM_NAMESPACE = "timers";
 const CHANGE_EVENT = "timer change";
 const ERROR_EVENT = "timer error";
+
+const io = new Server();
 
 io.on("connection", function (socket) {
   if (!isValidTimerId(socket.handshake.query.timerId)) {
@@ -36,4 +38,4 @@ io.of("/").adapter.on("delete-room", (roomId) => {
   }
 });
 
-module.exports = io;
+export default io;

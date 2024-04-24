@@ -10,8 +10,7 @@
     "dev": "NODE_ENV=development node ./bin/www",
     "prod": "NODE_ENV=production node ./bin/www",
     "prettier": "prettier . --write",
-    "eslint": "eslint .",
-    "postinstall": "cd client && npm install && npm run build"
+    "eslint": "eslint ."
   },
   "dependencies": {
     "debug": "~2.6.9",

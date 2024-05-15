@@ -11,6 +11,8 @@ React, Node.js, Express, Socket.IO.
 
 This was originally built for use at a conference for sharing speaker timings across the compère and AV staff. More recently I've used this in Zoom games to manage round times with players.
 
+*Should be noted that all participants/users need to have the correct system time on their computer for this to work properly*
+
 ## Development
 
 ```shell
